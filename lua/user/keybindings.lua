@@ -3,12 +3,12 @@ local M = {}
 M.config = function()
 
   local function set_bufferline_keymaps()
+    lvim.builtin.which_key.mappings["c"] = nil
     lvim.keys.normal_mode["<S-x>"] = "<Cmd>BufferKill<CR>"
     lvim.keys.normal_mode["<S-l>"] = "<Cmd>BufferLineCycleNext<CR>"
     lvim.keys.normal_mode["<S-h>"] = "<Cmd>BufferLineCyclePrev<CR>"
     lvim.keys.normal_mode["[b"] = "<Cmd>BufferLineMoveNext<CR>"
     lvim.keys.normal_mode["]b"] = "<Cmd>BufferLineMovePrev<CR>"
-    -- lvim.builtin.which_key.mappings["c"] = {}
     lvim.builtin.which_key.mappings.b = {
       name = "﩯Buffer",
       ["1"] = { "<Cmd>BufferLineGoToBuffer 1<CR>", "goto 1" },
@@ -43,6 +43,7 @@ M.config = function()
   end
 
   set_bufferline_keymaps()
+  lvim.builtin.which_key.mappings["x"] = nil
 
   lvim.builtin.which_key.mappings["/"] = {
     "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>",
@@ -53,7 +54,7 @@ M.config = function()
   lvim.builtin.which_key.mappings["dU"] = { "<cmd>lua require('dapui').toggle()<cr>", "Toggle UI" }
   lvim.builtin.which_key.mappings["gd"] = { "<cmd>DiffviewOpen<cr>", "diffview: diff HEAD" }
 
-  lvim.builtin.which_key.mappings["?"] = { "<cmd>Cheat<CR>", " Cheat.sh" }
+  lvim.builtin.which_key.mappings["\\"] = { "<cmd>Cheat<CR>", " Cheat.sh" }
 
   lvim.builtin.which_key.mappings["F"] = {
     name = " Find",
@@ -158,6 +159,10 @@ M.config = function()
   lvim.builtin.which_key.vmappings["g"] = {
     name = " Git",
     s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
+  }
+  lvim.builtin.which_key.mappings["G"] = {
+    "<cmd>lua require('user.builtin').toggle_lazygit()<cr>",
+    " LazyGit"
   }
 
 end

@@ -1,0 +1,6 @@
+# LunarVim
+plugin/
+
+.luacheckcache
+
+lv-settings.lua
