@@ -43,7 +43,6 @@ M.config = function()
   end
 
   set_bufferline_keymaps()
-  lvim.builtin.which_key.mappings["x"] = nil
 
   lvim.builtin.which_key.mappings["/"] = {
     "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>",

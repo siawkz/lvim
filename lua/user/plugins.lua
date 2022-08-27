@@ -10,7 +10,7 @@ M.config = function()
       end,
       opt = true,
       cmd = { "Cheat", "CheatWithoutComments", "CheatList", "CheatListWithoutComments" },
-      keys = "<leader>x",
+      keys = "<leader>\\",
     },
     {
       "nvim-telescope/telescope-file-browser.nvim",
