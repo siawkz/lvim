@@ -119,78 +119,53 @@ M.config = function()
     firefoxExecutable = "/Applications/Firefox.app/Contents/MacOS/firefox"
   end
 
-  dap.configurations.typescript = {}
-  local dapjs_status_ok, dapjs = pcall(require, "dap-vscode-js")
-  if not dapjs_status_ok then
-    table.insert(dap.configurations.typescript, {
-      type = "node2",
-      name = "node attach",
-      request = "attach",
-      program = "${file}",
-      cwd = vim.fn.getcwd(),
-      sourceMaps = true,
-      protocol = "inspector",
-    })
-  else
-    require("dap-vscode-js").setup({
-      -- node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
-      -- debugger_path = "(runtimedir)/site/pack/packer/opt/vscode-js-debug", -- Path to vscode-js-debug installation.
-      -- debugger_path = "/home/kz/.local/share/lunarvim/site/pack/packer/opt/vscode-js-debug", -- Path to vscode-js-debug installation.
-      debugger_path = join_paths(os.getenv "LUNARVIM_RUNTIME_DIR", "site", "pack", "packer", "opt", "vscode-js-debug"), -- Path to vscode-js-debug installation.
-      adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' }, -- which adapters to register in nvim-dap
-    })
-    -- dapjs.setup {
-    --   {
-    --     -- node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
-    --     -- debugger_path = join_paths(os.getenv "LUNARVIM_RUNTIME_DIR", "site", "pack", "packer", "opt", "vscode-js-debug"), -- Path to vscode-js-debug installation.
-    --     debugger_path = "/home/kz/.local/share/lunarvim/site/pack/packer/opt/vscode-js-debug", -- Path to vscode-js-debug installation.
-    --     adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' }, -- which adapters to register in nvim-dap
-    --   },
-    --   true
-    -- }
-    table.insert(dap.configurations.typescript, {
+  require("dap-vscode-js").setup({
+    -- node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
+    debugger_path = join_paths(os.getenv "LUNARVIM_RUNTIME_DIR", "site", "pack", "packer", "opt", "vscode-js-debug"), -- Path to vscode-js-debug installation.
+    adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' }, -- which adapters to register in nvim-dap
+  })
+  dap.configurations.typescript = {
+    {
       type = "pwa-node",
       request = "launch",
       name = "Launch file",
       program = "${file}",
       cwd = "${workspaceFolder}",
-    })
-    table.insert(dap.configurations.typescript, {
+    },
+    {
       type = "pwa-node",
       request = "attach",
       name = "Attach",
       processId = require 'dap.utils'.pick_process,
       cwd = "${workspaceFolder}",
-    })
-  end
-
-  table.insert(dap.configurations.typescript, {
-    type = "chrome",
-    name = "chrome",
-    request = "attach",
-    program = "${file}",
-    -- cwd = "${workspaceFolder}",
-    -- protocol = "inspector",
-    port = 9222,
-    webRoot = "${workspaceFolder}",
-    -- sourceMaps = true,
-    sourceMapPathOverrides = {
-      -- Sourcemap override for nextjs
-      ["webpack://_N_E/./*"] = "${webRoot}/*",
-      ["webpack:///./*"] = "${webRoot}/*",
     },
-  })
-  table.insert(dap.configurations.typescript, {
-    name = "Debug with Firefox",
-    type = "firefox",
-    request = "launch",
-    reAttach = true,
-    sourceMaps = true,
-    url = "http://localhost:6969",
-    webRoot = "${workspaceFolder}",
-    firefoxExecutable = firefoxExecutable,
-  })
-
+    {
+      type = "chrome",
+      name = "chrome",
+      request = "attach",
+      program = "${file}",
+      -- cwd = "${workspaceFolder}",
+      -- protocol = "inspector",
+      port = 9222,
+      webRoot = "${workspaceFolder}",
+      -- sourceMaps = true,
+      sourceMapPathOverrides = {
+        -- Sourcemap override for nextjs
+        ["webpack://_N_E/./*"] = "${webRoot}/*",
+        ["webpack:///./*"] = "${webRoot}/*",
+      },
+    },
+    {
+      name = "Debug with Firefox",
+      type = "firefox",
+      request = "launch",
+      reAttach = true,
+      sourceMaps = true,
+      url = "http://localhost:6969",
+      webRoot = "${workspaceFolder}",
+      firefoxExecutable = firefoxExecutable,
+    }
+  }
 
   dap.configurations.typescriptreact = dap.configurations.typescript
   dap.configurations.javascript = dap.configurations.typescript
@@ -310,6 +285,14 @@ M.config = function()
   lvim.builtin.dap.on_config_done = function(_)
     lvim.builtin.which_key.mappings["d"].name = " Debug"
   end
+
+end
+
+M.loadLaunchJson = function()
+  require('dap.ext.vscode').load_launchjs(nil, {
+    ['pwa-node'] = { 'typescript', 'javascript' }
+  })
+
 end
 
 return M

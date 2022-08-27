@@ -109,7 +109,6 @@ M.config = function()
       config = function()
         require("user.dapui").config()
       end,
-      ft = { "python", "rust", "go" },
       event = "BufReadPost",
       requires = { "mfussenegger/nvim-dap" },
       disable = not lvim.builtin.dap.active,
