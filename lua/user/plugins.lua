@@ -121,7 +121,13 @@ M.config = function()
     {
       "microsoft/vscode-js-debug",
       opt = true,
-      run = "npm install --legacy-peer-deps && npm run compile"
+      run = "npm install --legacy-peer-deps && npm run compile",
+      disable = not lvim.builtin.dap.active,
+    },
+    {
+      "mfussenegger/nvim-dap-python",
+      run = "python3 -m venv virtualenvs/debugpy && virtualenvs/debugpy/bin/python -m pip install debugpy",
+      disable = not lvim.builtin.dap.active,
     },
     {
       "tzachar/cmp-tabnine",

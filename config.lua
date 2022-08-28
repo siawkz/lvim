@@ -183,16 +183,15 @@ lvim.builtin.dap.active = true
 
 require("user.builtin").config()
 
+-- Additional Plugins
+-- =========================================
+require("user.plugins").config()
+
 -- Debugging
 -- =========================================
 if lvim.builtin.dap.active then
   require("user.dap").config()
 end
-
--- Additional Plugins
--- =========================================
-require("user.plugins").config()
-
 
 -- Additional keybindings
 -- =========================================
