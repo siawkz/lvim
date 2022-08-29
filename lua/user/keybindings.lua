@@ -112,8 +112,6 @@ M.config = function()
     s = { "<cmd>lua require('persistence').load()<cr>", "Restore for current dir" },
   }
 
-  lvim.builtin.which_key.mappings["N"] = { "<cmd>Telescope file_create<CR>", " Create new file" }
-
   lvim.builtin.which_key.mappings["o"] = { "<cmd>SymbolsOutline<cr>", " Symbol Outline" }
 
   lvim.builtin.which_key.mappings.L.name = " LunarVim"
