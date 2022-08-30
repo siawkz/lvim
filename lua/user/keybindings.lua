@@ -54,7 +54,7 @@ M.config = function()
   lvim.builtin.which_key.mappings["dL"] = { "<cmd>lua require('user.dap').loadLaunchJson()<cr>", "Load Launch JSON" }
   lvim.builtin.which_key.mappings["gd"] = { "<cmd>DiffviewOpen<cr>", "diffview: diff HEAD" }
 
-  lvim.builtin.which_key.mappings["\\"] = { "<cmd>Cheat<CR>", " Cheat.sh" }
+  lvim.builtin.which_key.mappings["@"] = { "<cmd>Cheat<CR>", " Cheat.sh" }
 
   lvim.builtin.which_key.mappings["F"] = {
     name = " Find",
