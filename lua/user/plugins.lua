@@ -200,7 +200,10 @@ M.config = function()
       end,
     },
     { "zbirenbaum/copilot-cmp",
-      after = { "copilot.lua", "nvim-cmp" }
+      after = { "copilot.lua", "nvim-cmp" },
+      config = function()
+        require("copilot_cmp").setup()
+      end
     },
     {
       "nvim-neotest/neotest",
@@ -223,9 +226,8 @@ M.config = function()
 
   -- Can not be placed into the config method of the plugins.
   -- lvim.builtin.cmp.formatting.source_names["copilot"] = "(Copilot)"
-  -- table.insert(lvim.builtin.cmp.sources, 1, { name = "copilot" })
-  table.insert(lvim.builtin.cmp.sources, { name = "copilot", group_index = 2 })
-
+  table.insert(lvim.builtin.cmp.sources, 2, { name = "copilot" })
+  -- table.insert(lvim.builtin.cmp.sources, { name = "copilot", group_index = 2 })
 end
 
 return M
