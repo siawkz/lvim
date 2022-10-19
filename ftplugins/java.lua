@@ -116,12 +116,12 @@ local config = {
                 runtimes = {
                     {
                         name = "JavaSE-11",
-                        path = "~/.sdkman/candidates/java/11.0.2-open",
+                        path = "/usr/lib/jvm/java-11-openjdk-amd64",
                       },
-                    {
-                        name = "JavaSE-18",
-                        path = "~/.sdkman/candidates/java/18.0.1.1-open",
-                      },
+                    -- {
+                    --     name = "JavaSE-18",
+                    --     path = "~/.sdkman/candidates/java/18.0.1.1-open",
+                    --   },
                   },
               },
             maven = {
