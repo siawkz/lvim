@@ -130,6 +130,9 @@ M.config = function()
       disable = not lvim.builtin.dap.active,
     },
     {
+      "mfussenegger/nvim-jdtls"
+    },
+    {
       "tzachar/cmp-tabnine",
       run = "./install.sh",
       requires = "hrsh7th/nvim-cmp",
