@@ -1,6 +1,7 @@
 local M = {}
 
 M.config = function()
+  local neoclip_req = { "kkharji/sqlite.lua", module = "sqlite" }
   lvim.plugins = {
     {
       "ray-x/lsp_signature.nvim",
@@ -219,24 +220,21 @@ M.config = function()
       end,
       event = "BufRead",
     },
-    {
-      "zbirenbaum/copilot.lua",
-      after = "nvim-cmp",
-      requires = { "zbirenbaum/copilot-cmp" },
+    { "zbirenbaum/copilot.lua",
+      event = { "VimEnter" },
       config = function()
-        local cmp_source = { name = "copilot", group_index = 2 }
-        table.insert(lvim.builtin.cmp.sources, cmp_source)
         vim.defer_fn(function()
-          require("copilot").setup()
+          require("copilot").setup {
+            plugin_manager_path = get_runtime_dir() .. "/site/pack/packer",
+          }
         end, 100)
       end,
     },
-    {
-      "ThePrimeagen/harpoon",
-      requires = {
-        { "nvim-lua/plenary.nvim" },
-        { "nvim-lua/popup.nvim" },
-      },
+    { "zbirenbaum/copilot-cmp",
+      after = { "copilot.lua", "nvim-cmp" },
+      config = function()
+        require("copilot_cmp").setup()
+      end
     },
     {
       "sindrets/diffview.nvim",
@@ -302,6 +300,12 @@ M.config = function()
     },
     {
       "hrsh7th/cmp-cmdline",
+    },
+    {
+      "mrjones2014/legendary.nvim",
+      config = function()
+        require("user.legendary").config()
+      end,
     },
     {
       "ThePrimeagen/refactoring.nvim",

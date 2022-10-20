@@ -36,7 +36,7 @@ require("user.plugins").config()
 
 -- Autocommands
 -- =========================================
--- require("user.autocommands").config()
+require("user.autocommands").config()
 
 -- Additional Keybindings
 -- =========================================

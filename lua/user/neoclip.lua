@@ -8,7 +8,7 @@ M.config = function()
 
   neoclip.setup {
     history = 50,
-    enable_persistent_history = lvim.builtin.neoclip.enable_persistent_history,
+    enable_persistent_history = true,
     db_path = vim.fn.stdpath "data" .. "/neoclip.sqlite3",
     keys = {
       telescope = {
