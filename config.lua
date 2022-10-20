@@ -5,6 +5,10 @@ lvim.leader = "space"
 lvim.colorscheme = "tokyonight" -- set to a custom theme
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
+-- Customization
+-- =========================================
+lvim.lsp.diagnostics.virtual_text = false
+
 -- Override Lunarvim defaults
 -- =========================================
 require("user.builtin").config()
