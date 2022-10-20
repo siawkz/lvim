@@ -472,6 +472,7 @@ M.config = function()
   lvim.builtin.telescope.on_config_done = function(telescope)
     pcall(telescope.load_extension, "neoclip")
     pcall(telescope.load_extension, "file_browser")
+    pcall(telescope.load_extension, "luasnip")
   end
 
   -- WhichKey

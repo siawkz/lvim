@@ -249,6 +249,10 @@ M.config = function()
     {
       "nvim-telescope/telescope-live-grep-args.nvim",
     },
+    {
+      "benfowler/telescope-luasnip.nvim",
+      module = "telescope._extensions.luasnip",
+    },
     { "mtdl9/vim-log-highlighting", ft = { "text", "log" } },
     {
       "yamatsum/nvim-cursorline",
@@ -353,6 +357,26 @@ M.config = function()
       end,
       ft = "python",
       event = { "BufRead", "BufNew" },
+    },
+    {
+      "mxsdev/nvim-dap-vscode-js",
+      ft = {
+        "javascript",
+        "javascriptreact",
+        "javascript.jsx",
+        "typescript",
+        "typescriptreact",
+        "typescript.tsx",
+      },
+      opt = true,
+      event = { "BufReadPre", "BufNew" },
+      config = function()
+        require("dap-vscode-js").setup {
+          debugger_path = vim.fn.stdpath "data" .. "/mason/packages/js-debug-adapter",
+          debugger_cmd = { "js-debug-adapter" },
+          adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
+        }
+      end,
     },
   }
 end
