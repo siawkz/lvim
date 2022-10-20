@@ -9,6 +9,15 @@ M.set_terminal_keymaps = function()
   vim.api.nvim_buf_set_keymap(0, "t", "<C-l>", [[<C-\><C-n><C-W>l]], opts)
 end
 
+M.set_refactoring_keymaps = function()
+  vim.api.nvim_set_keymap(
+    "v",
+    "rr",
+    "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>",
+    { noremap = true }
+  )
+end
+
 M.set_hop_keymaps = function()
   local opts = { noremap = true, silent = true }
   vim.api.nvim_set_keymap("n", "s", ":HopChar2MW<cr>", opts)
@@ -286,6 +295,8 @@ M.config = function()
     name = " Git",
     s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
   }
+
+  M.set_refactoring_keymaps()
 end
 
 return M

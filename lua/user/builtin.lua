@@ -473,6 +473,7 @@ M.config = function()
     pcall(telescope.load_extension, "neoclip")
     pcall(telescope.load_extension, "file_browser")
     pcall(telescope.load_extension, "luasnip")
+    pcall(telescope.load_extension, "refactoring")
   end
 
   -- WhichKey
