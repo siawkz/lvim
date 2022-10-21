@@ -8,6 +8,7 @@ M.config = function()
     result = result:gsub("/", path_sep)
     return result
   end
+
   local join_path = require("lvim.utils").join_paths
 
   local status_ok, dap = pcall(require, "dap")
@@ -243,7 +244,7 @@ M.config = function()
   }
 
   local path = vim.fn.glob(mason_path .. "packages/codelldb/extension/")
-    or vim.fn.expand "~/" .. ".vscode/extensions/vadimcn.vscode-lldb-1.8.1/"
+      or vim.fn.expand "~/" .. ".vscode/extensions/vadimcn.vscode-lldb-1.8.1/"
   local lldb_cmd = path .. "adapter/codelldb"
 
   dap.adapters.codelldb = {
@@ -321,6 +322,21 @@ M.config = function()
     end,
     console = "integratedTerminal",
   })
+
+  dap.adapters.coreclr = {
+    type = 'executable',
+    command = 'netcoredbg',
+    args = { '--interpreter=vscode' },
+  }
+
+  dap.configurations.cs = {
+    type = "coreclr",
+    name = "launch - netcoredbg",
+    request = "launch",
+    program = function()
+      return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/", "file")
+    end,
+  }
 end
 
 return M
