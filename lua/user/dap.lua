@@ -337,6 +337,16 @@ M.config = function()
       program = function()
         return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/", "file")
       end,
+      args = function()
+          local inputstr = vim.fn.input("Params: ", "")
+          local params = {}
+          local sep = "%s"
+          for str in string.gmatch(inputstr, "([^" .. sep .. "]+)") do
+            table.insert(params, str)
+          end
+          return params
+        end,
+
     }
   }
 end
