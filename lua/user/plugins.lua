@@ -187,6 +187,7 @@ M.config = function()
         { "nvim-neotest/neotest-python" },
         { "nvim-neotest/neotest-plenary" },
         { "rouge8/neotest-rust" },
+        { "Issafalcon/neotest-dotnet" },
       },
       -- opt = true,
       -- event = { "BufEnter *_test.*,*_spec.*,test_*.*" },
