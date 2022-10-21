@@ -147,13 +147,6 @@ M.config = function()
       requires = "nvim-treesitter/nvim-treesitter",
     },
     {
-      "vim-test/vim-test",
-      cmd = { "TestNearest", "TestFile", "TestSuite", "TestLast", "TestVisit" },
-      config = function()
-        require("user.vim_test").config()
-      end,
-    },
-    {
       "jose-elias-alvarez/typescript.nvim",
       ft = {
         "javascript",
