@@ -51,18 +51,9 @@ M.config = function()
         dap = { justMyCode = false, console = "integratedTerminal" },
       },
       require "neotest-plenary",
+      require "neotest-dotnet",
     },
   }
-
-  if lvim.builtin.task_runner == "overseer" then
-    opts.consumers = {
-      overseer = require "neotest.consumers.overseer",
-    }
-    opts.overseer = {
-      enabled = true,
-      force_default = true,
-    }
-  end
 
   nt.setup(opts)
 end

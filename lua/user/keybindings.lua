@@ -134,9 +134,18 @@ M.set_lsp_lines_keymap = function()
 end
 
 M.set_task_runner_keymaps = function()
-  lvim.builtin.which_key.mappings["m"] = "Make"
-  lvim.builtin.which_key.mappings["r"] = "Run"
-  require("user.autocommands").make_run()
+  lvim.builtin.which_key.mappings["m"] = {
+    name = " Make",
+    f = { "<cmd>AsyncTask file-build<cr>", "File" },
+    p = { "<cmd>AsyncTask project-build<cr>", "Project" },
+    e = { "<cmd>AsyncTaskEdit<cr>", "Edit" },
+    l = { "<cmd>AsyncTaskList<cr>", "List" },
+  }
+  lvim.builtin.which_key.mappings["r"] = {
+    name = " Run",
+    f = { "<cmd>AsyncTask file-run<cr>", "File" },
+    p = { "<cmd>AsyncTask project-run<cr>", "Project" },
+  }
 end
 
 M.config = function()
