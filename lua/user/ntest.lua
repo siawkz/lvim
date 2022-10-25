@@ -35,7 +35,11 @@ M.config = function()
       enabled = true,
     },
     icons = {
+      passed = "✔",
       running = require("user.lsp_kind").icons.clock,
+      failed = "✖",
+      skipped = "ﰸ",
+      unknown = "?"
     },
     floating = {
       border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
