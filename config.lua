@@ -36,7 +36,7 @@ require("user.dap").config()
 --   "tsserver",
 --   "yamlls",
 -- })
--- require("user.null_ls").config()
+require("user.null_ls").config()
 
 -- Additional Plugins
 -- =========================================
