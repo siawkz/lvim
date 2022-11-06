@@ -13,6 +13,10 @@ lvim.lsp.diagnostics.virtual_text = false
 -- =========================================
 require("user.builtin").config()
 
+-- StatusLine
+-- =========================================
+require("user.lualine").config()
+
 -- Debugging
 -- =========================================
 require("user.dap").config()
