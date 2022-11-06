@@ -214,9 +214,8 @@ M.config = function()
 
   -- Theme
   -- =========================================
-  -- lvim.builtin.theme.options.style = "storm"
-  lvim.builtin.theme.options.styles.comments = {}
-  lvim.builtin.theme.options.dim_inactive = true
+  require("user.theme").tokyonight()
+  lvim.builtin.theme.name = "tokyonight"
 
   -- Toggleterm
   -- =========================================
@@ -234,12 +233,12 @@ M.config = function()
   -- =========================================
   lvim.builtin.treesitter.context_commentstring.enable = true
   local languages = vim.tbl_flatten {
-    { "bash", "c", "c_sharp", "cmake", "comment", "cpp", "css", "d", "dart" },
-    { "dockerfile", "elixir", "elm", "erlang", "fennel", "fish", "go", "gomod" },
+    { "bash", "c", "c_sharp", "cmake", "comment", "cpp", "css" },
+    { "dockerfile", "go", "gomod" },
     { "gomod", "graphql", "hcl", "help", "html", "java", "javascript", "jsdoc" },
-    { "json", "jsonc", "julia", "kotlin", "latex", "ledger", "lua", "make" },
-    { "markdown", "nix", "ocaml", "perl", "php", "python", "query", "r" },
-    { "regex", "rego", "ruby", "rust", "scala", "scss", "solidity", "swift" },
+    { "json", "jsonc", "kotlin", "latex", "lua", "make" },
+    { "markdown", "ocaml", "perl", "php", "python", "query", "r" },
+    { "regex", "rego", "ruby", "rust", "scss", "solidity" },
     { "teal", "toml", "tsx", "typescript", "vim", "vue", "yaml", "zig" },
   }
   lvim.builtin.treesitter.ensure_installed = languages
