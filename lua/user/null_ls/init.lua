@@ -24,6 +24,7 @@ M.config = function()
       end,
       prefer_local = "node_modules/.bin",
     },
+    nls.builtins.formatting.google_java_format,
     nls.builtins.formatting.stylua,
     nls.builtins.formatting.goimports,
     nls.builtins.formatting.cmake_format,
