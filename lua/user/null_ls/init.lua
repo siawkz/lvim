@@ -30,6 +30,7 @@ M.config = function()
     nls.builtins.formatting.goimports,
     nls.builtins.formatting.cmake_format,
     nls.builtins.formatting.black,
+    nls.builtins.formatting.shfmt,
     nls.builtins.formatting.scalafmt,
     nls.builtins.formatting.sqlformat,
     nls.builtins.formatting.terraform_fmt,
