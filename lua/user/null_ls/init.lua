@@ -30,6 +30,7 @@ M.config = function()
     nls.builtins.formatting.goimports,
     nls.builtins.formatting.cmake_format,
     nls.builtins.formatting.black,
+    nls.builtins.formatting.isort,
     nls.builtins.formatting.shfmt,
     nls.builtins.formatting.shellharden,
     nls.builtins.formatting.scalafmt,
@@ -49,6 +50,9 @@ M.config = function()
       end,
       prefer_local = "node_modules/.bin",
     },
+    nls.builtins.code_actions.refactoring.with {
+      filetypes = { "typescript", "javascript", "lua", "c", "cpp", "go", "python", "java", "php" },
+    }
   }
 
   -- you can either config null-ls itself
