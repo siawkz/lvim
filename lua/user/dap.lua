@@ -282,6 +282,8 @@ M.config = function()
 			stopOnEntry = false,
 		},
 		{
+      -- If you get an "Operation not permitted" error using this, try disabling YAMA:
+      --  echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
 			name = "Attach to process",
 			type = "codelldb",
 			request = "attach",
