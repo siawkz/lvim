@@ -289,6 +289,7 @@ M.config = function()
 			request = "attach",
 			pid = require("dap.utils").pick_process,
 			arg = {},
+			stopOnEntry = false,
 		},
 	}
 
