@@ -28,6 +28,7 @@ M.config = function()
     nls.builtins.formatting.google_java_format,
     nls.builtins.formatting.stylua,
     nls.builtins.formatting.goimports,
+    nls.builtins.formatting.gofumpt,
     nls.builtins.formatting.cmake_format,
     nls.builtins.formatting.black,
     nls.builtins.formatting.isort,
@@ -43,6 +44,7 @@ M.config = function()
       prefer_local = "node_modules/.bin",
     },
     nls.builtins.diagnostics.shellcheck,
+    nls.builtins.code_actions.gomodifytags,
     -- nls.builtins.diagnostics.luacheck,
     nls.builtins.code_actions.eslint_d.with {
       condition = function(utils)
