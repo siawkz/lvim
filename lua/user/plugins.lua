@@ -319,6 +319,14 @@ M.config = function()
 				require("user.legendary").config()
 			end,
 		},
+    {
+      "stevearc/dressing.nvim",
+      lazy = true,
+      config = function()
+        require("user.dress").config()
+      end,
+      event = "BufWinEnter",
+    },
 		{
 			"ThePrimeagen/refactoring.nvim",
 			lazy = true,

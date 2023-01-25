@@ -24,17 +24,17 @@ require("user.dap").config()
 -- Language Specific
 -- =========================================
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, {
---   "clangd",
---   "dockerls",
---   "gopls",
---   "golangci_lint_ls",
-  "jdtls",
---   "pyright",
---   "rust_analyzer",
---   "taplo",
---   "texlab",
---   "tsserver",
---   "yamlls",
+	--   "clangd",
+	--   "dockerls",
+	--   "gopls",
+	--   "golangci_lint_ls",
+	"jdtls",
+	--   "pyright",
+	--   "rust_analyzer",
+	--   "taplo",
+	--   "texlab",
+	--   "tsserver",
+	--   "yamlls",
 })
 require("user.null_ls").config()
 
