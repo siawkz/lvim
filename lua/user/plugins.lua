@@ -42,7 +42,7 @@ M.config = function()
 		{
 			"phaazon/hop.nvim",
 			event = "VeryLazy",
-      cmd = { "HopChar1CurrentLineAC", "HopChar1CurrentLineBC", "HopChar2MW", "HopWordMW" },
+			cmd = { "HopChar1CurrentLineAC", "HopChar1CurrentLineBC", "HopChar2MW", "HopWordMW" },
 			config = function()
 				require("user.hop").config()
 			end,
@@ -319,14 +319,14 @@ M.config = function()
 				require("user.legendary").config()
 			end,
 		},
-    {
-      "stevearc/dressing.nvim",
-      lazy = true,
-      config = function()
-        require("user.dress").config()
-      end,
-      event = "BufWinEnter",
-    },
+		{
+			"stevearc/dressing.nvim",
+			lazy = true,
+			config = function()
+				require("user.dress").config()
+			end,
+			event = "BufWinEnter",
+		},
 		{
 			"ThePrimeagen/refactoring.nvim",
 			lazy = true,
@@ -336,6 +336,17 @@ M.config = function()
 				require("refactoring").setup({})
 			end,
 		},
+     { "MunifTanjim/nui.nvim" },
+    {
+      "folke/noice.nvim",
+      event = "VeryLazy",
+      config = function()
+        require("user.noice").config()
+      end,
+      dependencies = {
+        "rcarriga/nvim-notify",
+      },
+    },
 		{
 			"olexsmir/gopher.nvim",
 			config = function()
@@ -395,6 +406,47 @@ M.config = function()
 				})
 			end,
 		},
+    {
+      "smjonas/inc-rename.nvim",
+      lazy = true,
+      cmd = "IncRename",
+      config = function()
+        require("inc_rename").setup()
+      end,
+    },
+    {
+      "m-demare/hlargs.nvim",
+      lazy = true,
+      event = "VeryLazy",
+      config = function()
+        require("hlargs").setup()
+      end,
+      dependencies = { "nvim-treesitter/nvim-treesitter" },
+    },
+    {
+      "cshuaimin/ssr.nvim",
+      lazy = true,
+      config = function()
+        require("ssr").setup {
+          min_width = 50,
+          min_height = 5,
+          keymaps = {
+            close = "q",
+            next_match = "n",
+            prev_match = "N",
+            replace_all = "<leader><cr>",
+          },
+        }
+      end,
+      event = { "BufReadPost", "BufNew" },
+    },
+    {
+      "Civitasv/cmake-tools.nvim",
+      config = function()
+        require("user.cle").cmake_config()
+      end,
+      ft = { "c", "cpp", "objc", "objcpp", "h", "hpp" },
+    },
 	}
 end
 
