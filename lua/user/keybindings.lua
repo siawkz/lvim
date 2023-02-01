@@ -205,6 +205,7 @@ M.config = function()
 	lvim.builtin.which_key.mappings["gh"] = { "<cmd>DiffviewFileHistory<cr>", "diffview: filehistory" }
 	lvim.builtin.which_key.mappings["?"] = { "<cmd>Cheat<CR>", " Cheat.sh" }
 	M.set_lsp_lines_keymap()
+	lvim.builtin.which_key.mappings["e"] = { "<cmd>Neotree toggle<CR>", " Explorer" }
 	lvim.builtin.which_key.mappings["F"] = {
 		name = " Find",
 		b = { "<cmd>lua require('user.telescope').builtin()<cr>", "Builtin" },

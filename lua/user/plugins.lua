@@ -336,6 +336,17 @@ M.config = function()
 				require("refactoring").setup({})
 			end,
 		},
+    {
+      "nvim-neo-tree/neo-tree.nvim",
+      branch = "v2.x",
+      cmd = "Neotree",
+      dependencies = {
+        "MunifTanjim/nui.nvim",
+      },
+      config = function()
+        require("user.neotree").config()
+      end,
+    },
      { "MunifTanjim/nui.nvim" },
     {
       "folke/noice.nvim",

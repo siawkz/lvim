@@ -68,9 +68,9 @@ M.config = function()
 		}
 	end
 	local cmdline_opts = {
-		mapping = cmp.mapping.preset.cmdline({}),
+		mapping = cmp.mapping.preset.cmdline(),
 		sources = {
-			-- { name = "cmdline" },
+			{ name = "cmdline" },
 			{ name = "path" },
 		},
 	}
@@ -510,41 +510,6 @@ M.config = function()
 		group = "", -- symbol prepended to a group
 	}
 	lvim.builtin.which_key.setup.ignore_missing = true
-end
-
-function M.tab(fallback)
-	local methods = require("lvim.core.cmp").methods
-	local cmp = require("cmp")
-	local luasnip = require("luasnip")
-	if cmp.visible() then
-		cmp.select_next_item()
-	elseif vim.api.nvim_get_mode().mode == "c" then
-		fallback()
-	elseif luasnip.expand_or_locally_jumpable() then
-		luasnip.expand_or_jump()
-	elseif methods.jumpable(1) then
-		luasnip.jump(1)
-	elseif methods.has_words_before() then
-		-- cmp.complete()
-		fallback()
-	else
-		methods.feedkeys("<Plug>(Tabout)", "")
-	end
-end
-
-function M.shift_tab(fallback)
-	local methods = require("lvim.core.cmp").methods
-	local luasnip = require("luasnip")
-	local cmp = require("cmp")
-	if cmp.visible() then
-		cmp.select_prev_item()
-	elseif vim.api.nvim_get_mode().mode == "c" then
-		fallback()
-	elseif luasnip.jumpable(-1) then
-		luasnip.jump(-1)
-	else
-		methods.feedkeys("<Plug>(Tabout)", "")
-	end
 end
 
 -- credit: https://github.com/max397574/NeovimConfig/blob/master/lua/configs/lsp/init.lua
