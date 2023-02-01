@@ -28,16 +28,16 @@ M.config = function()
 		native_menu = false,
 		custom_menu = true,
 	}
-  local cmp_border = {
-    { "╭", "CmpBorder" },
-    { "─", "CmpBorder" },
-    { "╮", "CmpBorder" },
-    { "│", "CmpBorder" },
-    { "╯", "CmpBorder" },
-    { "─", "CmpBorder" },
-    { "╰", "CmpBorder" },
-    { "│", "CmpBorder" },
-  }
+	local cmp_border = {
+		{ "╭", "CmpBorder" },
+		{ "─", "CmpBorder" },
+		{ "╮", "CmpBorder" },
+		{ "│", "CmpBorder" },
+		{ "╯", "CmpBorder" },
+		{ "─", "CmpBorder" },
+		{ "╰", "CmpBorder" },
+		{ "│", "CmpBorder" },
+	}
 	local cmp_sources = {
 		buffer = "(Buffer)",
 		copilot = "(Copilot)",
@@ -81,6 +81,12 @@ M.config = function()
 		},
 	}
 	cmp.setup.cmdline(":", cmdline_opts)
+	cmp.setup.cmdline({ "/", "?" }, {
+		mapping = cmp.mapping.preset.cmdline(),
+		sources = {
+			{ name = "buffer" },
+		},
+	})
 	cmp.setup.filetype("toml", {
 		sources = cmp.config.sources({
 			{ name = "nvim_lsp", max_item_count = 8 },
