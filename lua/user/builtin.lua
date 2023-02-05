@@ -281,7 +281,12 @@ M.config = function()
 		{ "teal", "toml", "tsx", "typescript", "vim", "vue", "yaml", "zig" },
 	})
 	lvim.builtin.treesitter.ensure_installed = languages
-	lvim.builtin.treesitter.highlight.disable = { "org" }
+	lvim.builtin.treesitter.highlight.disable = function(lang, bufnr)
+		if lang == "org" then
+			return true
+		end
+		return vim.api.nvim_buf_line_count(bufnr) > 5000
+	end
 	lvim.builtin.treesitter.highlight.aditional_vim_regex_highlighting = { "org" }
 	lvim.builtin.treesitter.ignore_install = { "haskell", "norg" }
 	lvim.builtin.treesitter.incremental_selection = {
