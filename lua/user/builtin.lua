@@ -151,6 +151,7 @@ M.config = function()
 		capabilities = require("lvim.lsp").common_capabilities(),
 	})
 
+	vim.lsp.handlers["textDocument/hover"] = require("noice.lsp.hover").on_hover
 	lvim.lsp.buffer_mappings.normal_mode["ga"] = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" }
 	lvim.lsp.buffer_mappings.normal_mode["gI"] = {
 		"<cmd>lua require('user.telescope').lsp_implementations()<CR>",
