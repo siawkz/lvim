@@ -701,9 +701,6 @@ M.lsp_on_attach_callback = function(client, _)
 		mappings["lF"] = { "<Cmd>lua require('crates').show_features_popup()<CR>", "Show Features" }
 		mappings["lD"] = { "<Cmd>lua require('crates').show_dependencies_popup()<CR>", "Show Dependencies" }
 	elseif client.name == "tsserver" then
-		mappings["lA"] = { "<Cmd>TSLspImportAll<CR>", "Import All" }
-		mappings["lR"] = { "<Cmd>TSLspRenameFile<CR>", "Rename File" }
-		mappings["lO"] = { "<Cmd>TSLspOrganize<CR>", "Organize Imports" }
 		mappings["li"] = { "<cmd>TypescriptAddMissingImports<Cr>", "AddMissingImports" }
 		mappings["lo"] = { "<cmd>TypescriptOrganizeImports<cr>", "OrganizeImports" }
 		mappings["lu"] = { "<cmd>TypescriptRemoveUnused<Cr>", "RemoveUnused" }
