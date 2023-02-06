@@ -335,7 +335,7 @@ M.config = function()
 		name = " Git",
 		s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
 	}
-	lvim.builtin.which_key.vmappings["r"] = {
+	lvim.builtin.which_key.vmappings["s"] = {
 		function()
 			require("ssr").open()
 		end,
