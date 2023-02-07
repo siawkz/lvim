@@ -338,7 +338,7 @@ M.config = function()
 					or vim.api.nvim_get_current_win()
 				vim.api.nvim_set_current_win(picked_window_id)
 			end,
-			" Pick Window",
+			" Pick Window",
 		}
 		lvim.builtin.which_key.mappings["W"] = {
 			function()
@@ -347,7 +347,7 @@ M.config = function()
 				vim.api.nvim_win_set_buf(window, 0)
 				vim.api.nvim_win_set_buf(0, target_buffer)
 			end,
-			" Swap Window",
+			" Swap Window",
 		}
 	else
 		lvim.builtin.which_key.mappings["w"] = { "<cmd>w!<CR>", " Save" }

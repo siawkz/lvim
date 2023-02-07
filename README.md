@@ -23,7 +23,6 @@ cargo install ripgrep fd-find
 - NodeJS >= v16.13.0 [nvm](https://github.com/nvm-sh/nvm)
   most language servers need this
 
-
 ```shell
 # install LunarVim
 mv ~/.config/lvim ~/.config/lvim_backup
@@ -33,6 +32,7 @@ lvim # run :Lazy sync
 ```
 
 ### Recommended Fonts
+
 JetBrainsMono Nerd Font
 
 ## Custom Key-mappings
@@ -50,7 +50,7 @@ Modes: 𝐍=normal 𝐕=visual 𝐒=select 𝐈=insert 𝐂=command
 | <kbd>Space</kbd>+<kbd>e</kbd>                                 |  𝐍   | Open file tree      | <small>NvimTree</small>                       |
 | <kbd>Space</kbd>+<kbd>o</kbd>                                 |  𝐍   | Open symbols        | <small>Symbols-outline</small>                |
 | <kbd>Space</kbd>+<kbd>f</kbd>                                 |  𝐍   | Open file finder    | <small>Telescope</small>                      |
-| <kbd>Space</kbd>+<kbd>h</kbd>                                 |  𝐍   | Remove highlight    | <small>`nohlsearch<`</small>                  |
+| <kbd>Space</kbd>+<kbd>h</kbd>                                 |  𝐍   | Remove highlight    | <small>`nohlsearch`</small>                   |
 | <kbd>Space</kbd>+<kbd>/</kbd>                                 |  𝐍   | Toggle comment      | <small>Comment.nvim</small>                   |
 | <kbd>Space</kbd>+<kbd>?</kbd>                                 |  𝐍   | Open cheats         | <small>cheat.sh</small>                       |
 | <kbd>Space</kbd>+<kbd>'</kbd>                                 |  𝐍   | Open marks          | <small>which-key marks</small>                |
@@ -63,15 +63,15 @@ Modes: 𝐍=normal 𝐕=visual 𝐒=select 𝐈=insert 𝐂=command
 
 ### Motion
 
-| Key                         | Mode | Action                  | Plugin or Mapping                                             |
-| --------------------------- | :--: | ----------------------- | ------------------------------------------------------------- |
-| <kbd>f</kbd>                |  𝐍   | find next character     | <small>HopChar1CurrentLineAC</small> or <small>leap_f</small> |
-| <kbd>F</kbd>                |  𝐍   | find previous character | <small>HopChar1CurrentLineBC</small> or <small>leap_F</small> |
-| <kbd>s</kbd>                |  𝐍   | find character          | <small>HopChar2MW</small> or <small>leap_s</small>            |
-| <kbd>S</kbd>                |  𝐍   | find word               | <small>HopWordMW</small> or <small>leap_S</small>             |
-| <kbd>Alt</kbd>+<kbd>a</kbd> |  𝐈   | select all              | <small>ggVG</small>                                           |
-| <kbd>Alt</kbd>+<kbd>a</kbd> |  𝐍   | increment number        | <small>C-A</small>                                            |
-| <kbd>Alt</kbd>+<kbd>x</kbd> |  𝐍   | decrement number        | <small>C-X</small>                                            |
+| Key                         | Mode | Action                  | Plugin or Mapping                    |
+| --------------------------- | :--: | ----------------------- | ------------------------------------ |
+| <kbd>f</kbd>                |  𝐍   | find next character     | <small>HopChar1CurrentLineAC</small> |
+| <kbd>F</kbd>                |  𝐍   | find previous character | <small>HopChar1CurrentLineBC</small> |
+| <kbd>s</kbd>                |  𝐍   | find character          | <small>HopChar2MW</small>            |
+| <kbd>S</kbd>                |  𝐍   | find word               | <small>HopWordMW</small>             |
+| <kbd>Alt</kbd>+<kbd>a</kbd> |  𝐈   | select all              | <small>ggVG</small>                  |
+| <kbd>Alt</kbd>+<kbd>a</kbd> |  𝐍   | increment number        | <small>C-A</small>                   |
+| <kbd>Alt</kbd>+<kbd>x</kbd> |  𝐍   | decrement number        | <small>C-X</small>                   |
 
 ### LSP
 
@@ -126,6 +126,22 @@ Modes: 𝐍=normal 𝐕=visual 𝐒=select 𝐈=insert 𝐂=command
 | <kbd>Space</kbd>+<kbd>b</kbd>+<kbd>D</kbd> |  𝐍   | Sort by directory    |
 | <kbd>Space</kbd>+<kbd>b</kbd>+<kbd>L</kbd> |  𝐍   | Sort by language     |
 
+### Plugin: nvim-window-picker
+
+| Key                           | Mode | Action      |
+| ----------------------------- | :--: | ----------- |
+| <kbd>Space</kbd>+<kbd>w</kbd> |  𝐍   | Pick Window |
+| <kbd>Space</kbd>+<kbd>W</kbd> |  𝐍   | Swap Window |
+
+### Plugin: hlslens
+
+| Key            | Mode | Action                             |
+| -------------- | :--: | ---------------------------------- |
+| <kbd>\*</kbd>  |  𝐍   | Search & go to next selected word  |
+| <kbd>#</kbd>   |  𝐍   | Search & go to prev selected word  |
+| <kbd>g\*</kbd> |  𝐍   | Search & go to first selected word |
+| <kbd>g#</kbd>  |  𝐍   | Search & go to last selected word  |
+
 ### Plugin: Trouble
 
 | Key                                        | Mode | Action                |
@@ -158,4 +174,3 @@ Modes: 𝐍=normal 𝐕=visual 𝐒=select 𝐈=insert 𝐂=command
 | <kbd>Space</kbd>+<kbd>R</kbd>+<kbd>p</kbd> |  𝐍   | Replace word in project        |
 | <kbd>Space</kbd>+<kbd>R</kbd>+<kbd>w</kbd> |  𝐍   | Replace visually selected word |
 | <kbd>Space</kbd>+<kbd>R</kbd>+<kbd>f</kbd> |  𝐍   | Replace word in current buffer |
-
