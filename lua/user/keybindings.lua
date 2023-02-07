@@ -330,7 +330,28 @@ M.config = function()
 		t = { "<cmd>TodoLocList <cr>", "Todo" },
 		w = { "<cmd>Trouble workspace_diagnostics<cr>", "Diagnosticss" },
 	}
-	lvim.builtin.which_key.mappings["w"] = { "<cmd>w!<CR>", " Save" }
+	local window_picker_ok, picker = pcall(require, "window-picker")
+	if window_picker_ok then
+		lvim.builtin.which_key.mappings["w"] = {
+			function()
+				local picked_window_id = picker.pick_window({ include_current_win = true })
+					or vim.api.nvim_get_current_win()
+				vim.api.nvim_set_current_win(picked_window_id)
+			end,
+			" Pick Window",
+		}
+		lvim.builtin.which_key.mappings["W"] = {
+			function()
+				local window = picker.pick_window({ include_current_win = false })
+				local target_buffer = vim.fn.winbufnr(window)
+				vim.api.nvim_win_set_buf(window, 0)
+				vim.api.nvim_win_set_buf(0, target_buffer)
+			end,
+			" Swap Window",
+		}
+	else
+		lvim.builtin.which_key.mappings["w"] = { "<cmd>w!<CR>", " Save" }
+	end
 	lvim.builtin.which_key.vmappings["g"] = {
 		name = " Git",
 		s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },

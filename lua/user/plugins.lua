@@ -336,28 +336,49 @@ M.config = function()
 				require("refactoring").setup({})
 			end,
 		},
-    {
-      "nvim-neo-tree/neo-tree.nvim",
-      branch = "v2.x",
-      cmd = "Neotree",
-      dependencies = {
-        "MunifTanjim/nui.nvim",
-      },
-      config = function()
-        require("user.neotree").config()
-      end,
-    },
-     { "MunifTanjim/nui.nvim" },
-    {
-      "folke/noice.nvim",
-      event = "VeryLazy",
-      config = function()
-        require("user.noice").config()
-      end,
-      dependencies = {
-        "rcarriga/nvim-notify",
-      },
-    },
+		{
+			"nvim-neo-tree/neo-tree.nvim",
+			branch = "v2.x",
+			cmd = "Neotree",
+			dependencies = {
+				"MunifTanjim/nui.nvim",
+			},
+			config = function()
+				require("user.neotree").config()
+			end,
+		},
+		{ "MunifTanjim/nui.nvim" },
+		{
+			"folke/noice.nvim",
+			event = "VeryLazy",
+			config = function()
+				require("user.noice").config()
+			end,
+			dependencies = {
+				"rcarriga/nvim-notify",
+			},
+		},
+		{
+			"s1n7ax/nvim-window-picker",
+			version = "v1.*",
+			config = function()
+				require("window-picker").setup({
+					autoselect_one = true,
+					include_current = false,
+					filter_rules = {
+						-- filter using buffer options
+						bo = {
+							-- if the file type is one of following, the window will be ignored
+							filetype = { "neo-tree", "neo-tree-popup", "notify", "quickfix" },
+
+							-- if the buffer type is one of following, the window will be ignored
+							buftype = { "terminal" },
+						},
+					},
+					other_win_hl_color = "#e35e4f",
+				})
+			end,
+		},
 		{
 			"olexsmir/gopher.nvim",
 			config = function()
@@ -417,47 +438,46 @@ M.config = function()
 				})
 			end,
 		},
-    {
-      "smjonas/inc-rename.nvim",
-      lazy = true,
-      cmd = "IncRename",
-      config = function()
-        require("inc_rename").setup()
-      end,
-    },
-    {
-      "m-demare/hlargs.nvim",
-      lazy = true,
-      event = "VeryLazy",
-      config = function()
-        require("hlargs").setup()
-      end,
-      dependencies = { "nvim-treesitter/nvim-treesitter" },
-    },
-    {
-      "cshuaimin/ssr.nvim",
-      lazy = true,
-      config = function()
-        require("ssr").setup {
-          min_width = 50,
-          min_height = 5,
-          keymaps = {
-            close = "q",
-            next_match = "n",
-            prev_match = "N",
-            replace_all = "<leader><cr>",
-          },
-        }
-      end,
-      event = { "BufReadPost", "BufNew" },
-    },
-    {
-      "Civitasv/cmake-tools.nvim",
-      config = function()
-        require("user.cle").cmake_config()
-      end,
-      ft = { "c", "cpp", "objc", "objcpp", "h", "hpp" },
-    },
+		{
+			"smjonas/inc-rename.nvim",
+			cmd = "IncRename",
+			config = function()
+				require("inc_rename").setup()
+			end,
+		},
+		{
+			"m-demare/hlargs.nvim",
+			lazy = true,
+			event = "VeryLazy",
+			config = function()
+				require("hlargs").setup()
+			end,
+			dependencies = { "nvim-treesitter/nvim-treesitter" },
+		},
+		{
+			"cshuaimin/ssr.nvim",
+			lazy = true,
+			config = function()
+				require("ssr").setup({
+					min_width = 50,
+					min_height = 5,
+					keymaps = {
+						close = "q",
+						next_match = "n",
+						prev_match = "N",
+						replace_all = "<leader><cr>",
+					},
+				})
+			end,
+			event = { "BufReadPost", "BufNew" },
+		},
+		{
+			"Civitasv/cmake-tools.nvim",
+			config = function()
+				require("user.cle").cmake_config()
+			end,
+			ft = { "c", "cpp", "objc", "objcpp", "h", "hpp" },
+		},
 	}
 end
 
