@@ -151,7 +151,10 @@ M.config = function()
 		capabilities = require("lvim.lsp").common_capabilities(),
 	})
 
-	vim.lsp.handlers["textDocument/hover"] = require("noice.lsp.hover").on_hover
+	local status_ok, noice = pcall(require, "noice.lsp.hover")
+	if status_ok then
+		vim.lsp.handlers["textDocument/hover"] = noice.on_hover
+	end
 	lvim.lsp.buffer_mappings.normal_mode["ga"] = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" }
 	lvim.lsp.buffer_mappings.normal_mode["gI"] = {
 		"<cmd>lua require('user.telescope').lsp_implementations()<CR>",
@@ -262,11 +265,11 @@ M.config = function()
 	lvim.builtin.terminal.active = true
 	lvim.builtin.terminal.execs = {}
 	lvim.builtin.terminal.autochdir = true
-	lvim.builtin.terminal.open_mapping = nil
+	lvim.builtin.terminal.open_mapping = "<C-\\>"
 	lvim.builtin.terminal.size = vim.o.columns * 0.4
 	lvim.builtin.terminal.on_config_done = function()
 		M.create_terminal(2, "<c-\\>", 20, "float")
-		M.create_terminal(3, "<A-0>", vim.o.columns * 0.4, "vertical")
+		M.create_terminal(3, "<M-0>", vim.o.columns * 0.4, "vertical")
 	end
 
 	-- Treesitter
