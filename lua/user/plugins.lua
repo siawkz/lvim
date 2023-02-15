@@ -221,9 +221,7 @@ M.config = function()
 			event = { "VimEnter" },
 			config = function()
 				vim.defer_fn(function()
-					require("copilot").setup({
-						plugin_manager_path = get_runtime_dir() .. "/site/pack/packer",
-					})
+					require("user.copilot").config()
 				end, 100)
 			end,
 		},
