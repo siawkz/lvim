@@ -23,7 +23,7 @@ M.config = function()
 			javascriptreact = true,
 			typescriptreact = true,
 			svelte = true,
-			csharp = true,
+			cs = true,
 			terraform = true,
 			dockerfile = true,
 		},
