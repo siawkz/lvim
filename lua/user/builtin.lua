@@ -254,6 +254,19 @@ M.config = function()
 	-- =========================================
 	lvim.builtin.project.active = true
 	lvim.builtin.project.detection_methods = { "lsp", "pattern" }
+	lvim.builtin.project.patterns = {
+		".git",
+		"_darcs",
+		".hg",
+		".bzr",
+		".svn",
+		"Makefile",
+		"package.json",
+		".sln",
+		".csproj",
+		"pom.xml",
+		"CMakeLists.txt",
+	}
 
 	-- Theme
 	-- =========================================
