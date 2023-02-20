@@ -80,7 +80,7 @@ M.config = function()
 			winhighlight = "Search:None",
 		},
 	}
-	cmp.setup.cmdline(":", cmdline_opts)
+	-- cmp.setup.cmdline(":", cmdline_opts)
 	cmp.setup.cmdline({ "/", "?" }, {
 		mapping = cmp.mapping.preset.cmdline(),
 		sources = {

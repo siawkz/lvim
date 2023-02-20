@@ -99,7 +99,7 @@ M.config = function()
       },
     },
     popupmenu = {
-      enabled = false,
+      enabled = true,
     },
     routes = {
       {
