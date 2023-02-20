@@ -28,16 +28,6 @@ M.config = function()
 		native_menu = false,
 		custom_menu = true,
 	}
-	local cmp_border = {
-		{ "╭", "CmpBorder" },
-		{ "─", "CmpBorder" },
-		{ "╮", "CmpBorder" },
-		{ "│", "CmpBorder" },
-		{ "╯", "CmpBorder" },
-		{ "─", "CmpBorder" },
-		{ "╰", "CmpBorder" },
-		{ "│", "CmpBorder" },
-	}
 	local cmp_sources = {
 		buffer = "(Buffer)",
 		copilot = "(Copilot)",
@@ -59,6 +49,7 @@ M.config = function()
 			return vim_item
 		end,
 	}
+	lvim.builtin.cmp.cmdline.enable = true
 	local cmp_ok, cmp = pcall(require, "cmp")
 	if not cmp_ok or cmp == nil then
 		cmp = {
@@ -67,26 +58,6 @@ M.config = function()
 			config = { sources = function(...) end },
 		}
 	end
-	local cmdline_opts = {
-		mapping = cmp.mapping.preset.cmdline(),
-		sources = {
-			{ name = "cmdline" },
-			{ name = "path" },
-		},
-	}
-	cmdline_opts.window = {
-		completion = {
-			border = cmp_border,
-			winhighlight = "Search:None",
-		},
-	}
-	-- cmp.setup.cmdline(":", cmdline_opts)
-	cmp.setup.cmdline({ "/", "?" }, {
-		mapping = cmp.mapping.preset.cmdline(),
-		sources = {
-			{ name = "buffer" },
-		},
-	})
 	cmp.setup.filetype("toml", {
 		sources = cmp.config.sources({
 			{ name = "nvim_lsp", max_item_count = 8 },

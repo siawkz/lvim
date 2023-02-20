@@ -82,10 +82,6 @@ M.config = function()
     },
     views = {
       cmdline_popup = {
-        border = {
-          style = "none",
-          padding = { 1, 2 },
-        },
         win_options = {
           winblend = 5,
           winhighlight = {
@@ -99,7 +95,7 @@ M.config = function()
       },
     },
     popupmenu = {
-      enabled = true,
+      enabled = false,
     },
     routes = {
       {

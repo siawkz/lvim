@@ -309,9 +309,6 @@ M.config = function()
 			end,
 		},
 		{
-			"hrsh7th/cmp-cmdline",
-		},
-		{
 			"mrjones2014/legendary.nvim",
 			config = function()
 				require("user.legendary").config()
