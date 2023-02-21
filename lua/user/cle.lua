@@ -1,3 +1,4 @@
+local M = {}
 
 M.config = function()
 	local status_ok, clangd_extensions = pcall(require, "clangd_extensions")
