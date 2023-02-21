@@ -42,6 +42,7 @@ M.config = function()
 		nls.builtins.formatting.terraform_fmt,
 		nls.builtins.diagnostics.semgrep.with({
 			filetypes = { "python", "go", "cs", "terraform" },
+			args = { "--config", "auto", "-q", "--json", "$FILENAME" },
 		}),
 		nls.builtins.diagnostics.eslint_d.with({
 			condition = function(utils)
