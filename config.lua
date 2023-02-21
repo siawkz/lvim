@@ -35,9 +35,7 @@ vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, {
 	-- "texlab",
 	-- "tsserver",
 	-- "yamlls",
-	"omnisharp",
 })
-require("lvim.lsp.manager").setup("csharp_ls")
 require("user.null_ls").config()
 
 -- Additional Plugins
