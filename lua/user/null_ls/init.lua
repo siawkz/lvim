@@ -40,6 +40,9 @@ M.config = function()
 		nls.builtins.formatting.scalafmt,
 		nls.builtins.formatting.sqlformat,
 		nls.builtins.formatting.terraform_fmt,
+		nls.builtins.diagnostics.semgrep.with({
+			filetypes = { "python", "go", "cs", "terraform" },
+		}),
 		nls.builtins.diagnostics.eslint_d.with({
 			condition = function(utils)
 				return utils.root_has_file({ ".eslintrc", ".eslintrc.js" })
