@@ -8,6 +8,19 @@ M.config = function()
 
 	copilot.setup({
 		plugin_manager_path = get_runtime_dir() .. "/site/pack/lazy",
+		suggestion = {
+			enabled = true,
+			auto_trigger = false,
+			debounce = 75,
+			keymap = {
+				accept = "<M-p>",
+				accept_word = "<M-w>",
+				accept_line = "<M-l>",
+				next = "<M-]>",
+				prev = "<M-[>",
+				dismiss = "<C-]>",
+			},
+		},
 		filetypes = {
 			["*"] = false,
 			python = true,

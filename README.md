@@ -174,3 +174,48 @@ Modes: 𝐍=normal 𝐕=visual 𝐒=select 𝐈=insert 𝐂=command
 | <kbd>Space</kbd>+<kbd>R</kbd>+<kbd>p</kbd> |  𝐍   | Replace word in project        |
 | <kbd>Space</kbd>+<kbd>R</kbd>+<kbd>w</kbd> |  𝐍   | Replace visually selected word |
 | <kbd>Space</kbd>+<kbd>R</kbd>+<kbd>f</kbd> |  𝐍   | Replace word in current buffer |
+
+### Plugin: SSR
+
+| Key                                        | Mode | Action                                          |
+| ------------------------------------------ | :--: | ----------------------------------------------- |
+| <kbd>Space</kbd>+<kbd>r</kbd>              |  𝐕   | Structural replace confirm using `<leader><cr>` |
+| <kbd>Space</kbd>+<kbd>R</kbd>+<kbd>s</kbd> |  𝐍   | Structural replace confirm using `<leader><cr>` |
+
+### Plugin: Copilot
+
+| Key                                        | Mode | Action                              |
+| ------------------------------------------ | :--: | ----------------------------------- |
+| <kbd>Space</kbd>+<kbd>c</kbd>+<kbd>f</kbd> |  𝐍   | Force Enable Copilot                |
+| <kbd>Space</kbd>+<kbd>c</kbd>+<kbd>t</kbd> |  𝐍   | Toggle Suggestion                   |
+| <kbd>Alt</kbd>+<kbd>p</kbd>                |  𝐈   | Accept                              |
+| <kbd>Alt</kbd>+<kbd>w</kbd>                |  𝐈   | Accept Word                         |
+| <kbd>Alt</kbd>+<kbd>l</kbd>                |  𝐈   | Accept Line                         |
+| <kbd>Alt</kbd>+<kbd>]</kbd>                |  𝐈   | Next                                |
+| <kbd>Alt</kbd>+<kbd>[</kbd>                |  𝐈   | Previous                            |
+| <kbd>Ctrl</kbd>+<kbd>]</kbd>               |  𝐈   | Dismiss                             |
+
+### Plugin: Lsp_Lines
+
+| Key                           | Mode | Action                   |
+| ----------------------------- | :--: | ------------------------ |
+| <kbd>Space</kbd>+<kbd>v</kbd> |  𝐍   | Toggle showing lsp_lines |
+
+
+### Plugin: NeoTree
+
+| Key                           | Mode | Action                           |
+| ----------------------------- | :--: | -------------------------------- |
+| <kbd>Space</kbd>+<kbd>e</kbd> |  𝐍   | Toggle tree                      |
+| <kbd>></kbd> and <kbd><</kbd> |  𝐍   | Next and prev source inside tree |
+| <kbd><cr></kbd>               |  𝐍   | Open                             |
+| <kbd>s</kbd>                  |  𝐍   | Open in vertical split           |
+| <kbd>S</kbd>                  |  𝐍   | Open in horizontal spit          |
+| <kbd>H</kbd>                  |  𝐍   | Toggle hidden files              |
+| <kbd>a</kbd>                  |  𝐍   | Add files/dirs                   |
+| <kbd>A</kbd>                  |  𝐍   | Add new dir                      |
+| <kbd>r</kbd>                  |  𝐍   | Rename                           |
+| <kbd>h</kbd>                  |  𝐍   | Go Updir                         |
+| <kbd>l</kbd>                  |  𝐍   | Open                             |
+| <kbd>P</kbd>                  |  𝐍   | Toggle preview                   |
+| <kbd>/</kbd>                  |  𝐍   | Fuzzy finder                     |
