@@ -86,7 +86,6 @@ local function set_bufferline_keymaps()
 	lvim.keys.normal_mode["<S-h>"] = "<Cmd>BufferLineCyclePrev<CR>"
 	lvim.keys.normal_mode["[b"] = "<Cmd>BufferLineMoveNext<CR>"
 	lvim.keys.normal_mode["]b"] = "<Cmd>BufferLineMovePrev<CR>"
-	lvim.builtin.which_key.mappings["c"] = {}
 	lvim.builtin.which_key.mappings.b = {
 		name = "﩯Buffer",
 		["1"] = { "<Cmd>BufferLineGoToBuffer 1<CR>", "goto 1" },
@@ -140,6 +139,19 @@ M.set_task_runner_keymaps = function()
 		f = { "<cmd>AsyncTask file-run<cr>", "File" },
 		p = { "<cmd>AsyncTask project-run<cr>", "Project" },
 	}
+end
+
+M.set_copilot_keymaps = function()
+	local copilot_ok, _ = pcall(require, "copilot")
+	if copilot_ok then
+		lvim.builtin.which_key.mappings["c"] = {
+			name = " Copilot",
+			f = { "<cmd>Copilot! toggle<cr>", "Force Enable" },
+			t = { "<cmd> lua require('copilot.suggestion').toggle_auto_trigger()<cr>", "Toggle Suggestions" },
+		}
+	else
+		lvim.builtin.which_key.mappings["c"] = {}
+	end
 end
 
 M.config = function()
@@ -364,6 +376,7 @@ M.config = function()
 	}
 
 	M.set_refactoring_keymaps()
+	M.set_copilot_keymaps()
 end
 
 return M
