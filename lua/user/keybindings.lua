@@ -146,8 +146,11 @@ M.set_copilot_keymaps = function()
 	if copilot_ok then
 		lvim.builtin.which_key.mappings["c"] = {
 			name = " Copilot",
+			e = { "<cmd>Copilot enable<cr>", "Enable" },
 			f = { "<cmd>Copilot! toggle<cr>", "Force Enable" },
+			d = { "<cmd>Copilot disable<cr>", "Disable" },
 			t = { "<cmd> lua require('copilot.suggestion').toggle_auto_trigger()<cr>", "Toggle Suggestions" },
+			s = { "<cmd>Copilot status<cr>", "Status" },
 		}
 	else
 		lvim.builtin.which_key.mappings["c"] = {}

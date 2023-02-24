@@ -187,6 +187,7 @@ Modes: 𝐍=normal 𝐕=visual 𝐒=select 𝐈=insert 𝐂=command
 | Key                                        | Mode | Action                              |
 | ------------------------------------------ | :--: | ----------------------------------- |
 | <kbd>Space</kbd>+<kbd>c</kbd>+<kbd>f</kbd> |  𝐍   | Force Enable Copilot                |
+| <kbd>Space</kbd>+<kbd>c</kbd>+<kbd>d</kbd> |  𝐍   | Force Disable Copilot                |
 | <kbd>Space</kbd>+<kbd>c</kbd>+<kbd>t</kbd> |  𝐍   | Toggle Suggestion                   |
 | <kbd>Alt</kbd>+<kbd>p</kbd>                |  𝐈   | Accept                              |
 | <kbd>Alt</kbd>+<kbd>w</kbd>                |  𝐈   | Accept Word                         |

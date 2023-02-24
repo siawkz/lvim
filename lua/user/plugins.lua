@@ -313,6 +313,7 @@ M.config = function()
 			config = function()
 				require("user.legendary").config()
 			end,
+			event = "VimEnter",
 		},
 		{
 			"stevearc/dressing.nvim",
