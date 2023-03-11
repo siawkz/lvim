@@ -39,6 +39,7 @@ M.tokyonight = function()
       c.bg_dim = "#1f2335"
       c.bg_float = "#1a1e30"
       local current_colors = M.colors.tokyonight_colors
+      hl["@variable"] = { fg = c.fg }
       hl.NormalFloat = { fg = current_colors.fg, bg = "#181924" }
       hl.Cursor = { fg = current_colors.bg, bg = current_colors.fg }
       hl.NormalNC = { fg = current_colors.fg_dark, bg = "#1c1d28" }
