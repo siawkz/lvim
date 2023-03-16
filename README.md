@@ -31,6 +31,12 @@ lvim +LvimUpdate +LvimCacheReset +q
 lvim # run :Lazy sync
 ```
 
+- [CodeGPT](https://github.com/dpayne/CodeGPT.nvim)
+```shell
+# set enviroment variable in /etc/environment
+OPENAI_API_KEY="your openapi api key"
+```
+
 ### Recommended Fonts
 
 JetBrainsMono Nerd Font
@@ -184,24 +190,23 @@ Modes: 𝐍=normal 𝐕=visual 𝐒=select 𝐈=insert 𝐂=command
 
 ### Plugin: Copilot
 
-| Key                                        | Mode | Action                              |
-| ------------------------------------------ | :--: | ----------------------------------- |
-| <kbd>Space</kbd>+<kbd>c</kbd>+<kbd>f</kbd> |  𝐍   | Force Enable Copilot                |
-| <kbd>Space</kbd>+<kbd>c</kbd>+<kbd>d</kbd> |  𝐍   | Force Disable Copilot                |
-| <kbd>Space</kbd>+<kbd>c</kbd>+<kbd>t</kbd> |  𝐍   | Toggle Suggestion                   |
-| <kbd>Alt</kbd>+<kbd>p</kbd>                |  𝐈   | Accept                              |
-| <kbd>Alt</kbd>+<kbd>w</kbd>                |  𝐈   | Accept Word                         |
-| <kbd>Alt</kbd>+<kbd>l</kbd>                |  𝐈   | Accept Line                         |
-| <kbd>Alt</kbd>+<kbd>]</kbd>                |  𝐈   | Next                                |
-| <kbd>Alt</kbd>+<kbd>[</kbd>                |  𝐈   | Previous                            |
-| <kbd>Ctrl</kbd>+<kbd>]</kbd>               |  𝐈   | Dismiss                             |
+| Key                                        | Mode | Action                |
+| ------------------------------------------ | :--: | --------------------- |
+| <kbd>Space</kbd>+<kbd>c</kbd>+<kbd>f</kbd> |  𝐍   | Force Enable Copilot  |
+| <kbd>Space</kbd>+<kbd>c</kbd>+<kbd>d</kbd> |  𝐍   | Force Disable Copilot |
+| <kbd>Space</kbd>+<kbd>c</kbd>+<kbd>t</kbd> |  𝐍   | Toggle Suggestion     |
+| <kbd>Alt</kbd>+<kbd>p</kbd>                |  𝐈   | Accept                |
+| <kbd>Alt</kbd>+<kbd>w</kbd>                |  𝐈   | Accept Word           |
+| <kbd>Alt</kbd>+<kbd>l</kbd>                |  𝐈   | Accept Line           |
+| <kbd>Alt</kbd>+<kbd>]</kbd>                |  𝐈   | Next                  |
+| <kbd>Alt</kbd>+<kbd>[</kbd>                |  𝐈   | Previous              |
+| <kbd>Ctrl</kbd>+<kbd>]</kbd>               |  𝐈   | Dismiss               |
 
 ### Plugin: Lsp_Lines
 
 | Key                           | Mode | Action                   |
 | ----------------------------- | :--: | ------------------------ |
 | <kbd>Space</kbd>+<kbd>v</kbd> |  𝐍   | Toggle showing lsp_lines |
-
 
 ### Plugin: NeoTree
 

@@ -476,6 +476,16 @@ M.config = function()
 			end,
 			ft = { "c", "cpp", "objc", "objcpp", "h", "hpp" },
 		},
+		{
+			"dpayne/CodeGPT.nvim",
+			config = function()
+				require("user.codegpt").config()
+			end,
+			dependencies = {
+				"nvim-lua/plenary.nvim",
+				"MunifTanjim/nui.nvim",
+			},
+		},
 	}
 end
 
