@@ -1,19 +1,65 @@
 local M = {}
 
 M.config = function()
-	local status_ok, CommandsList = pcall(require, "codegpt.commands_list")
+	local status_ok, _ = pcall(require, "codegpt.config")
 	if not status_ok then
 		return
 	end
 
-	CommandsList.cmd_default = {
-		model = "gpt-4",
-		max_tokens = 4096,
-		temperature = 0.8,
-		number_of_choices = 1,
-		system_message_template = "You are a {{language}} coding assistant.",
-		user_message_template = "",
-		callback_type = "replace_lines",
+	-- TODO: Change to gpt-4 later
+	local model = "gpt-3.5-turbo"
+
+	vim.g["codegpt_commands_defaults"] = {
+		["completion"] = {
+			model = model,
+			user_message_template = "I have the following {{language}} code snippet: ```{{filetype}}\n{{text_selection}}```\nComplete the rest. Use best practices and write really good documentation. {{language_instructions}} Only return the code snippet and nothing else.",
+			language_instructions = {
+				cpp = "Use modern C++ features.",
+				java = "Use modern Java syntax. Use var when applicable.",
+			},
+		},
+		["code_edit"] = {
+			model = model,
+			user_message_template = "I have the following {{language}} code: ```{{filetype}}\n{{text_selection}}```\n{{command_args}}. {{language_instructions}} Only return the code snippet and nothing else.",
+			language_instructions = {
+				cpp = "Use modern C++ syntax.",
+			},
+		},
+		["explain"] = {
+			model = model,
+			user_message_template = "Explain the following {{language}} code: ```{{filetype}}\n{{text_selection}}``` Explain as if you were explaining to another developer.",
+			callback_type = "text_popup",
+		},
+		["doc"] = {
+			model = model,
+			user_message_template = "I have the following {{language}} code: ```{{filetype}}\n{{text_selection}}```\nWrite really good documentation using best practices for the given language. Attention paid to documenting parameters, return types, any exceptions or errors. {{language_instructions}} Only return the code snippet and nothing else.",
+			language_instructions = {
+				cpp = "Use doxygen style comments for functions.",
+				java = "Use JavaDoc style comments for functions.",
+			},
+		},
+		["opt"] = {
+			model = model,
+			user_message_template = "I have the following {{language}} code: ```{{filetype}}\n{{text_selection}}```\nOptimize this code. {{language_instructions}} Only return the code snippet and nothing else.",
+			language_instructions = {
+				cpp = "Use modern C++.",
+			},
+		},
+		["tests"] = {
+			model = model,
+			user_message_template = "I have the following {{language}} code: ```{{filetype}}\n{{text_selection}}```\nWrite really good unit tests using best practices for the given language. {{language_instructions}} Only return the unit tests. Only return the code snippet and nothing else. ",
+			callback_type = "code_popup",
+			language_instructions = {
+				cpp = "Use modern C++ syntax. Generate unit tests using the gtest framework.",
+				java = "Generate unit tests using the junit framework.",
+			},
+		},
+		["chat"] = {
+			model = model,
+			system_message_template = "You are a general assistant to a software developer.",
+			user_message_template = "{{command_args}}",
+			callback_type = "text_popup",
+		},
 	}
 end
 
