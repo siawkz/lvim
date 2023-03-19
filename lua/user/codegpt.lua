@@ -8,7 +8,7 @@ M.config = function()
 
 	-- TODO: Change to gpt-4 later
 	local model = "gpt-3.5-turbo"
-	local max_tokens = 16384
+	local max_tokens = 4096
 
 	vim.g["codegpt_commands_defaults"] = {
 		["completion"] = {
