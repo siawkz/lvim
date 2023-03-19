@@ -48,6 +48,7 @@ M.config = function()
 			model = model,
 			max_tokens = max_tokens,
 			user_message_template = "I have the following {{language}} code: ```{{filetype}}\n{{text_selection}}```\nWrite really good markdown documentation using best practices for the given language.",
+      callback_type = "code_popup",
 		},
 		["opt"] = {
 			model = model,
