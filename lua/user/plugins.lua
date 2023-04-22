@@ -297,10 +297,6 @@ M.config = function()
 			ft = { "c", "cpp", "objc", "objcpp" },
 		},
 		{
-			"editorconfig/editorconfig-vim",
-			event = "BufRead",
-		},
-		{
 			"saecki/crates.nvim",
 			event = { "BufRead Cargo.toml" },
 			dependencies = { { "nvim-lua/plenary.nvim" } },
