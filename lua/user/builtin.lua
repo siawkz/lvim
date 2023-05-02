@@ -147,45 +147,6 @@ M.config = function()
 		"<cmd>lua require('user.builtin').show_documentation()<CR>",
 		"Show Documentation",
 	}
-	lvim.lsp.float.border = {
-		{ "╔", "FloatBorder" },
-		{ "═", "FloatBorder" },
-		{ "╗", "FloatBorder" },
-		{ "║", "FloatBorder" },
-		{ "╝", "FloatBorder" },
-		{ "═", "FloatBorder" },
-		{ "╚", "FloatBorder" },
-		{ "║", "FloatBorder" },
-	}
-	lvim.lsp.diagnostics.float.border = {
-		{ " ", "FloatBorder" },
-		{ " ", "FloatBorder" },
-		{ " ", "FloatBorder" },
-		{ " ", "FloatBorder" },
-		{ " ", "FloatBorder" },
-		{ " ", "FloatBorder" },
-		{ " ", "FloatBorder" },
-		{ " ", "FloatBorder" },
-	}
-	lvim.lsp.diagnostics.float.focusable = false
-	lvim.lsp.float.focusable = true
-	lvim.lsp.diagnostics.signs.values = {
-		{ name = "DiagnosticSignError", text = kind.icons.error },
-		{ name = "DiagnosticSignWarn", text = kind.icons.warn },
-		{ name = "DiagnosticSignInfo", text = kind.icons.info },
-		{ name = "DiagnosticSignHint", text = kind.icons.hint },
-	}
-	lvim.lsp.diagnostics.float.source = "if_many"
-	lvim.lsp.diagnostics.float.format = function(d)
-		local t = vim.deepcopy(d)
-		local code = d.code or (d.user_data and d.user_data.lsp.code)
-		for _, table in pairs(M.codes) do
-			if vim.tbl_contains(table, code) then
-				return table.message
-			end
-		end
-		return t.message
-	end
 	lvim.lsp.on_attach_callback = M.lsp_on_attach_callback
 
 	-- Lualine
