@@ -7,7 +7,6 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
 -- Customization
 -- =========================================
-vim.diagnostic.config({ virtual_text = false })
 
 -- Override Lunarvim defaults
 -- =========================================

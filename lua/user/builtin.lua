@@ -1,7 +1,51 @@
 local M = {}
+local kind = require("user.lsp_kind")
+
+M.default_diagnostic_config = {
+	signs = {
+		active = true,
+		values = {
+			{ name = "DiagnosticSignError", text = kind.icons.error },
+			{ name = "DiagnosticSignWarn", text = kind.icons.warn },
+			{ name = "DiagnosticSignInfo", text = kind.icons.info },
+			{ name = "DiagnosticSignHint", text = kind.icons.hint },
+		},
+	},
+	virtual_text = false,
+	underline = true,
+	severity_sort = true,
+	float = {
+		focusable = false,
+		style = "minimal",
+		source = "if_many",
+		header = "",
+		prefix = "",
+		border = {
+			{ " ", "FloatBorder" },
+			{ " ", "FloatBorder" },
+			{ " ", "FloatBorder" },
+			{ " ", "FloatBorder" },
+			{ " ", "FloatBorder" },
+			{ " ", "FloatBorder" },
+			{ " ", "FloatBorder" },
+			{ " ", "FloatBorder" },
+		},
+		format = function(d)
+			local t = vim.deepcopy(d)
+			local code = d.code or (d.user_data and d.user_data.lsp.code)
+			for _, table in pairs(M.codes) do
+				if vim.tbl_contains(table, code) then
+					return table.message
+				end
+			end
+			return t.message
+		end,
+	},
+}
 
 M.config = function()
-	local kind = require("user.lsp_kind")
+	M.default_diagnostic_config.virtual_text = false
+	vim.diagnostic.config(M.default_diagnostic_config)
 
 	-- Bufferline
 	-- =========================================
@@ -122,10 +166,6 @@ M.config = function()
 		capabilities = require("lvim.lsp").common_capabilities(),
 	})
 
-	local status_ok, noice = pcall(require, "noice.lsp.hover")
-	if status_ok then
-		vim.lsp.handlers["textDocument/hover"] = noice.on_hover
-	end
 	lvim.lsp.buffer_mappings.normal_mode["ga"] = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" }
 	lvim.lsp.buffer_mappings.normal_mode["gI"] = {
 		"<cmd>lua require('user.telescope').lsp_implementations()<CR>",
@@ -164,6 +204,7 @@ M.config = function()
 	local found, noice_util = pcall(require, "noice.util")
 	if found then
 		vim.lsp.handlers["textDocument/signatureHelp"] = noice_util.protect(require("noice.lsp").signature)
+		vim.lsp.handlers["textDocument/hover"] = noice_util.protect(require("noice.lsp.hover").on_hover)
 	end
 
 	-- NvimTree
