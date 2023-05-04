@@ -39,6 +39,9 @@ M.config = function()
 			cs = true,
 			terraform = true,
 			dockerfile = true,
+			markdown = true,
+			sql = true,
+			sh = true,
 		},
 	})
 end
