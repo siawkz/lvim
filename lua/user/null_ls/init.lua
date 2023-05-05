@@ -40,6 +40,8 @@ M.config = function()
 		nls.builtins.formatting.scalafmt,
 		nls.builtins.formatting.sqlformat,
 		nls.builtins.formatting.terraform_fmt,
+		nls.builtins.formatting.perlimports,
+		nls.builtins.formatting.perltidy,
 		nls.builtins.diagnostics.semgrep.with({
 			filetypes = { "python", "go", "cs", "terraform" },
 			args = { "--config", "auto", "-q", "--json", "--timeout", "0" },
