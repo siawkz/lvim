@@ -42,6 +42,7 @@ M.config = function()
 			markdown = true,
 			sql = true,
 			sh = true,
+			perl = true,
 		},
 	})
 end
