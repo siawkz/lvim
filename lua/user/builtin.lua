@@ -239,6 +239,7 @@ M.config = function()
 		".csproj",
 		"pom.xml",
 		"CMakeLists.txt",
+    ".root",
 	}
 
 	-- Theme
