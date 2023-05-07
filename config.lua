@@ -28,6 +28,7 @@ vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, {
 	-- "gopls",
 	-- "golangci_lint_ls",
 	"jdtls",
+	"csharp_ls",
 	-- "pyright",
 	-- "rust_analyzer",
 	-- "taplo",
@@ -35,6 +36,9 @@ vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, {
 	-- "tsserver",
 	-- "yamlls",
 })
+lvim.lsp.automatic_configuration.skipped_servers = vim.tbl_filter(function(server)
+	return server ~= "omnisharp"
+end, lvim.lsp.automatic_configuration.skipped_servers)
 require("user.null_ls").config()
 
 -- Additional Plugins
