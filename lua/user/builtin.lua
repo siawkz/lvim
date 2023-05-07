@@ -632,76 +632,14 @@ M.lsp_on_attach_callback = function(client, _)
 	}
 	-- local opts = { noremap = true, silent = true }
 	if client.name == "omnisharp" then
-		client.server_capabilities.semanticTokensProvider.legend = {
-			tokenModifiers = { "static" },
-			tokenTypes = {
-				"comment",
-				"excluded",
-				"identifier",
-				"keyword",
-				"keyword",
-				"number",
-				"operator",
-				"operator",
-				"preprocessor",
-				"string",
-				"whitespace",
-				"text",
-				"static",
-				"preprocessor",
-				"punctuation",
-				"string",
-				"string",
-				"class",
-				"delegate",
-				"enum",
-				"interface",
-				"module",
-				"struct",
-				"typeParameter",
-				"field",
-				"enumMember",
-				"constant",
-				"local",
-				"parameter",
-				"method",
-				"method",
-				"property",
-				"event",
-				"namespace",
-				"label",
-				"xml",
-				"xml",
-				"xml",
-				"xml",
-				"xml",
-				"xml",
-				"xml",
-				"xml",
-				"xml",
-				"xml",
-				"xml",
-				"xml",
-				"xml",
-				"xml",
-				"xml",
-				"xml",
-				"xml",
-				"xml",
-				"xml",
-				"xml",
-				"xml",
-				"regexp",
-				"regexp",
-				"regexp",
-				"regexp",
-				"regexp",
-				"regexp",
-				"regexp",
-				"regexp",
-				"regexp",
-			},
-		}
+		local tokenModifiers = client.server_capabilities.semanticTokensProvider.legend.tokenModifiers
+		for i, v in ipairs(tokenModifiers) do
+			tokenModifiers[i] = v:gsub(" ", "_")
+		end
+		local tokenTypes = client.server_capabilities.semanticTokensProvider.legend.tokenTypes
+		for i, v in ipairs(tokenTypes) do
+			tokenTypes[i] = v:gsub(" ", "_")
+		end
 	elseif client.name == "clangd" then
 		mappings["H"] = {
 			"<Cmd>ClangdSwitchSourceHeader<CR>",
