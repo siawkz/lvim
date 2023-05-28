@@ -87,7 +87,7 @@ local function set_bufferline_keymaps()
 	lvim.keys.normal_mode["[b"] = "<Cmd>BufferLineMoveNext<CR>"
 	lvim.keys.normal_mode["]b"] = "<Cmd>BufferLineMovePrev<CR>"
 	lvim.builtin.which_key.mappings.b = {
-		name = "﩯Buffer",
+		name = " Buffer",
 		["1"] = { "<Cmd>BufferLineGoToBuffer 1<CR>", "goto 1" },
 		["2"] = { "<Cmd>BufferLineGoToBuffer 2<CR>", "goto 2" },
 		["3"] = { "<Cmd>BufferLineGoToBuffer 3<CR>", "goto 3" },
@@ -122,7 +122,7 @@ end
 M.set_lsp_lines_keymap = function()
 	lvim.builtin.which_key.mappings["v"] = {
 		"<cmd>lua require('lsp_lines').toggle()<CR>",
-		"識LSP Lines",
+		" LSP Lines",
 	}
 end
 
@@ -208,19 +208,19 @@ M.config = function()
 	if status_ok_comment and cmt["toggle"] ~= nil then
 		lvim.builtin.which_key.mappings["/"] = {
 			"<cmd>lua require('Comment.api').toggle.linewise.current()<CR>",
-			" Comment",
+			"󰆉 Comment",
 		}
 	else
 		lvim.builtin.which_key.mappings["/"] = { "<Plug>(comment_toggle_linewise_current)", " Comment" }
 	end
-	lvim.builtin.which_key.mappings[";"] = { "<cmd>Alpha<CR>", "舘Dashboard" }
+	lvim.builtin.which_key.mappings[";"] = { "<cmd>Alpha<CR>", "󰕮 Dashboard" }
 	lvim.builtin.which_key.mappings["de"] = { "<cmd>lua require('dapui').eval()<cr>", "Eval" }
 	lvim.builtin.which_key.mappings["dU"] = { "<cmd>lua require('dapui').toggle()<cr>", "Toggle UI" }
 	lvim.builtin.which_key.mappings["gd"] = { "<cmd>DiffviewOpen<cr>", "diffview: diff HEAD" }
 	lvim.builtin.which_key.mappings["gh"] = { "<cmd>DiffviewFileHistory<cr>", "diffview: filehistory" }
 	lvim.builtin.which_key.mappings["?"] = { "<cmd>Cheat<CR>", " Cheat.sh" }
 	M.set_lsp_lines_keymap()
-	lvim.builtin.which_key.mappings["e"] = { "<cmd>Neotree toggle<CR>", " Explorer" }
+	lvim.builtin.which_key.mappings["e"] = { "<cmd>Neotree toggle<CR>", "󰀶 Explorer" }
 	lvim.builtin.which_key.mappings["F"] = {
 		name = " Find",
 		b = { "<cmd>lua require('user.telescope').builtin()<cr>", "Builtin" },
@@ -240,12 +240,12 @@ M.config = function()
 	lvim.keys.normal_mode["<c-P>"] = "<cmd>lua require('legendary').find()<cr>"
 	lvim.builtin.which_key.mappings["se"] = { "<cmd>Telescope file_browser<cr>", "File Browser" }
 	lvim.builtin.which_key.mappings["H"] = " Help"
-	lvim.builtin.which_key.mappings["h"] = { "<cmd>nohlsearch<CR>", " No Highlight" }
+	lvim.builtin.which_key.mappings["h"] = { "<cmd>nohlsearch<CR>", "󰸱 No Highlight" }
 	lvim.builtin.which_key.mappings.g.name = " Git"
 	lvim.builtin.which_key.mappings.l.name = " LSP"
 	lvim.builtin.which_key.mappings["f"] = {
 		require("user.telescope").find_project_files,
-		" Find File",
+		" Find File",
 	}
 	local ok, _ = pcall(require, "vim.diagnostic")
 	if ok then
@@ -283,7 +283,7 @@ M.config = function()
 		"Clear HL",
 	}
 	lvim.builtin.which_key.mappings["q"] = {
-		name = " Quit",
+		name = "󰗼 Quit",
 		d = { "<cmd>lua require('persistence').stop()<cr> | :qa!<cr>", "Quit without saving session" },
 		l = { "<cmd>lua require('persistence').load(last=true)<cr>", "Restore last session" },
 		s = { "<cmd>lua require('persistence').load()<cr>", "Restore for current dir" },
@@ -298,7 +298,7 @@ M.config = function()
 	}
 	lvim.builtin.which_key.mappings["o"] = { "<cmd>SymbolsOutline<cr>", " Symbol Outline" }
 	lvim.builtin.which_key.mappings.L.name = " LunarVim"
-	lvim.builtin.which_key.mappings.p.name = " Lazy"
+	lvim.builtin.which_key.mappings.p.name = " Lazy"
 	lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", " Projects" }
 	lvim.builtin.which_key.mappings["R"] = {
 		name = " Replace",
@@ -318,7 +318,7 @@ M.config = function()
 		"String",
 	}
 	lvim.builtin.which_key.mappings["t"] = {
-		name = "ﭧ Test",
+		name = "󰙨 Test",
 		f = {
 			"<cmd>lua require('neotest').run.run({vim.fn.expand('%'), env=require('user.ntest').get_env()})<cr>",
 			"File",
@@ -336,7 +336,7 @@ M.config = function()
 		w = { "<cmd>lua require('neotest').watch.watch()<cr>", "Watch" },
 	}
 	lvim.builtin.which_key.mappings["T"] = {
-		name = "飯Trouble",
+		name = " Trouble",
 		d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnosticss" },
 		f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
 		l = { "<cmd>Trouble loclist<cr>", "LocationList" },
@@ -365,7 +365,7 @@ M.config = function()
 			" Swap Window",
 		}
 	else
-		lvim.builtin.which_key.mappings["w"] = { "<cmd>w!<CR>", " Save" }
+		lvim.builtin.which_key.mappings["w"] = { "<cmd>w!<CR>", " Save" }
 	end
 	lvim.builtin.which_key.vmappings["g"] = {
 		name = " Git",
