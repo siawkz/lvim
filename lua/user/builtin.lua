@@ -219,7 +219,7 @@ M.config = function()
 		},
 	}
 	lvim.builtin.nvimtree.on_config_done = function(_)
-		lvim.builtin.which_key.mappings["e"] = { "<cmd>NvimTreeToggle<CR>", " Explorer" }
+		lvim.builtin.which_key.mappings["e"] = { "<cmd>NvimTreeToggle<CR>", "󰀶 Explorer" }
 	end
 	-- lvim.builtin.nvimtree.hide_dotfiles = 0
 

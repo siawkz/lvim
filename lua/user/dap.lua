@@ -290,6 +290,7 @@ M.config = function()
 
 			cwd = "${workspaceFolder}",
 			stopOnEntry = false,
+			runInTerminal = true,
 		},
 		{
 			-- If you get an "Operation not permitted" error using this, try disabling YAMA:

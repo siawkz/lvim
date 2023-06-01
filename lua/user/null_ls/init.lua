@@ -39,7 +39,9 @@ M.config = function()
 		nls.builtins.formatting.shellharden,
 		nls.builtins.formatting.scalafmt,
 		nls.builtins.formatting.sqlformat,
-		nls.builtins.formatting.terraform_fmt,
+		nls.builtins.formatting.terraform_fmt.with({
+			filetypes = { "terraform", "tf", "terraform-vars", "hcl" },
+		}),
 		nls.builtins.formatting.perlimports,
 		nls.builtins.formatting.perltidy,
 		nls.builtins.diagnostics.semgrep.with({
