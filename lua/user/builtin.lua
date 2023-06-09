@@ -264,7 +264,7 @@ M.config = function()
 	local languages = vim.tbl_flatten({
 		{ "bash", "c", "c_sharp", "cmake", "comment", "cpp", "css" },
 		{ "dockerfile", "go", "gomod" },
-		{ "gomod", "graphql", "hcl", "help", "html", "java", "javascript", "jsdoc" },
+		{ "gomod", "graphql", "hcl", "html", "java", "javascript", "jsdoc" },
 		{ "json", "jsonc", "kotlin", "latex", "lua", "make" },
 		{ "markdown", "ocaml", "perl", "php", "python", "query", "r" },
 		{ "regex", "rego", "ruby", "rust", "scss", "solidity" },
