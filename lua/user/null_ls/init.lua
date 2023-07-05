@@ -46,7 +46,7 @@ M.config = function()
 		nls.builtins.formatting.perltidy,
 		nls.builtins.diagnostics.semgrep.with({
 			filetypes = { "python", "go", "cs", "terraform" },
-			args = { "--config", "auto", "-q", "--json", "--timeout", "0" },
+			args = { "--config", "auto", "-q", "--json", "--timeout", "0", "$FILENAME" },
 			timeout = 30000,
 			method = nls.methods.DIAGNOSTICS_ON_SAVE,
 		}),
