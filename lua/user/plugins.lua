@@ -372,6 +372,10 @@ M.config = function()
 			end,
 		},
 		{
+			"mg979/vim-visual-multi",
+			branch = "master",
+		},
+		{
 			"olexsmir/gopher.nvim",
 			config = function()
 				require("gopher").setup({
