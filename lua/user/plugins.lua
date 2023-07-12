@@ -376,8 +376,8 @@ M.config = function()
 			branch = "master",
 			init = function()
 				vim.g.VM_maps = {
-					["Add Cursor Down"] = "<C-j>",
-					["Add Cursor Up"] = "<C-k>",
+					["Add Cursor Down"] = "<C-M-j>",
+					["Add Cursor Up"] = "<C-M-k>",
 				}
 			end,
 		},
