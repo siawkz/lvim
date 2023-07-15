@@ -140,7 +140,7 @@ M.config = function()
 	-- =========================================
 	lvim.builtin.dap.on_config_done = function()
 		lvim.builtin.which_key.mappings["d"].name = " Debug"
-		require("dap.ext.vscode").load_launchjs(nil, { cppdbg = { "c", "cpp", "h", "hpp" }, coreclr = { "cs" } })
+		require("dap.ext.vscode").load_launchjs(nil, { codelldb = { "c", "cpp", "h", "hpp" }, coreclr = { "cs" } })
 	end
 
 	-- Dashboard
