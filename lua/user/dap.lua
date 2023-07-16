@@ -116,6 +116,77 @@ M.config = function()
 		},
 	}
 
+	dap.configurations.typescript = {
+		{
+			type = "pwa-node",
+			request = "launch",
+			name = "Launch file",
+			program = "${file}",
+			rootPath = "${workspaceFolder}",
+			cwd = "${workspaceFolder}",
+			sourceMaps = true,
+			skipFiles = { "<node_internals>/**" },
+			protocol = "inspector",
+			console = "integratedTerminal",
+		},
+		{
+			type = "pwa-node",
+			request = "attach",
+			name = "Attach",
+			processId = require("dap.utils").pick_process,
+			cwd = "${workspaceFolder}",
+		},
+		{
+			type = "pwa-node",
+			request = "launch",
+			name = "Debug Jest Tests",
+			-- trace = true, -- include debugger info
+			runtimeExecutable = "node",
+			runtimeArgs = {
+				"./node_modules/jest/bin/jest.js",
+				"--runInBand",
+			},
+			rootPath = "${workspaceFolder}",
+			cwd = "${workspaceFolder}",
+			console = "integratedTerminal",
+			internalConsoleOptions = "neverOpen",
+		},
+		{
+			type = "pwa-chrome",
+			name = "Debug with Chrome",
+			request = "attach",
+			program = "${file}",
+			-- cwd = "${workspaceFolder}",
+			-- protocol = "inspector",
+			port = 9222,
+			webRoot = "${workspaceFolder}",
+			-- sourceMaps = true,
+			sourceMapPathOverrides = {
+				-- Sourcemap override for nextjs
+				["webpack://_N_E/./*"] = "${webRoot}/*",
+				["webpack:///./*"] = "${webRoot}/*",
+			},
+		},
+		{
+			type = "pwa-msedge",
+			name = "Debug with Edge",
+			request = "attach",
+			program = "${file}",
+			-- cwd = "${workspaceFolder}",
+			-- protocol = "inspector",
+			port = 9222,
+			webRoot = "${workspaceFolder}",
+			-- sourceMaps = true,
+			sourceMapPathOverrides = {
+				-- Sourcemap override for nextjs
+				["webpack://_N_E/./*"] = "${webRoot}/*",
+				["webpack:///./*"] = "${webRoot}/*",
+			},
+		},
+	}
+
+	dap.configurations.javascript = dap.configurations.typescript
+
 	--Java debugger adapter settings
 	dap.configurations.java = {
 		{
