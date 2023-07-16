@@ -143,7 +143,10 @@ M.config = function()
 		require("dap.ext.vscode").load_launchjs(
 			nil,
 			{ cppdbg = { "c", "cpp", "h", "hpp" } },
-			{ codelldb = { "c", "cpp", "h", "hpp" }, coreclr = { "cs" } }
+			{ codelldb = { "c", "cpp", "h", "hpp" }, coreclr = { "cs" } },
+			{ go = { "go" } },
+			{ node2 = { "js", "ts" } },
+			{ perlsp = { "pl" } }
 		)
 	end
 

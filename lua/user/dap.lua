@@ -115,6 +115,7 @@ M.config = function()
 			program = "./${relativeFileDirname}",
 		},
 	}
+
 	dap.configurations.typescript = {
 		{
 			type = "node2",
@@ -405,6 +406,24 @@ M.config = function()
 				end
 				return params
 			end,
+		},
+	}
+
+	dap.adapters.perlsp = {
+		type = "server",
+		host = "127.0.0.1",
+		port = "27011",
+	}
+
+	dap.configurations.perl = {
+		{
+			name = "Launch Perl",
+			type = "perlsp",
+			request = "launch",
+			program = "${workspaceFolder}/${relativeFile}",
+			reloadModules = true,
+			stopOnEntry = false,
+			cwd = "${workspaceFolder}",
 		},
 	}
 end
