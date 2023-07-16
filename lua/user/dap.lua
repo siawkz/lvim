@@ -143,16 +143,6 @@ M.config = function()
 			},
 		},
 		{
-			name = "Debug with Firefox",
-			type = "firefox",
-			request = "launch",
-			reAttach = true,
-			sourceMaps = true,
-			url = "http://localhost:6969",
-			webRoot = "${workspaceFolder}",
-			firefoxExecutable = firefoxExecutable,
-		},
-		{
 			name = "Launch",
 			type = "pwa-node",
 			request = "launch",
@@ -175,29 +165,6 @@ M.config = function()
 			name = "Debug Main Process (Electron)",
 			type = "pwa-node",
 			request = "launch",
-			program = "${workspaceFolder}/node_modules/.bin/electron",
-			args = {
-				"${workspaceFolder}/dist/index.js",
-			},
-			outFiles = {
-				"${workspaceFolder}/dist/*.js",
-			},
-			resolveSourceMapLocations = {
-				"${workspaceFolder}/dist/**/*.js",
-				"${workspaceFolder}/dist/*.js",
-			},
-			rootPath = "${workspaceFolder}",
-			cwd = "${workspaceFolder}",
-			sourceMaps = true,
-			skipFiles = { "<node_internals>/**" },
-			protocol = "inspector",
-			console = "integratedTerminal",
-		},
-		{
-			name = "Compile & Debug Main Process (Electron)",
-			type = custom_adapter,
-			request = "launch",
-			preLaunchTask = "npm run build-ts",
 			program = "${workspaceFolder}/node_modules/.bin/electron",
 			args = {
 				"${workspaceFolder}/dist/index.js",

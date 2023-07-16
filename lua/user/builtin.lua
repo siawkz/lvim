@@ -146,6 +146,8 @@ M.config = function()
 			coreclr = { "cs", "fs" },
 			go = { "go" },
 			node2 = { "js", "ts" },
+			["pwa-node"] = { "js", "ts" },
+			["pwa-chrome"] = { "js", "ts" },
 			perlsp = { "pl" },
 		})
 	end
