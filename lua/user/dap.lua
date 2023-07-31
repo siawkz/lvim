@@ -116,6 +116,12 @@ M.config = function()
 		},
 	}
 
+	dap.adapters.node2 = {
+		type = "executable",
+		command = "node",
+		args = { vim.fn.stdpath("data") .. "/mason/packages/vscode-node-debug2/out/src/nodeDebug.js" },
+	}
+
 	dap.configurations.typescript = {
 		{
 			type = "pwa-node",
