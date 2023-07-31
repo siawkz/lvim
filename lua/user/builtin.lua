@@ -145,10 +145,10 @@ M.config = function()
 			codelldb = { "c", "cpp", "h", "hpp" },
 			coreclr = { "cs", "fs" },
 			go = { "go" },
-			node2 = { "js", "ts" },
-			["pwa-node"] = { "js", "ts" },
-			["pwa-chrome"] = { "js", "ts" },
-			["pwa-msedge"] = { "js", "ts" },
+			node2 = { "javascript", "typescript" },
+			["pwa-node"] = { "javascript", "typescript" },
+			["pwa-chrome"] = { "javascript", "typescript" },
+			["pwa-msedge"] = { "javascript", "typescript" },
 			perlsp = { "pl" },
 		})
 	end
