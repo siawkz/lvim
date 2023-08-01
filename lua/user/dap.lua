@@ -122,6 +122,16 @@ M.config = function()
 		args = { vim.fn.stdpath("data") .. "/mason/packages/node-debug2-adapter/out/src/nodeDebug.js" },
 	}
 
+	dap.adapters["pwa-node"] = {
+		type = "server",
+		host = "localhost",
+		port = "${port}",
+		executable = {
+			command = "js-debug-adapter",
+			args = { "${port}" },
+		},
+	}
+
 	dap.configurations.typescript = {
 		{
 			type = "pwa-node",
