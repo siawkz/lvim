@@ -435,6 +435,7 @@ M.config = function()
 			config = function()
 				require("dap-vscode-js").setup({
 					debugger_path = vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter",
+					debugger_cmd = { "node js-debug/src/dapDebugServer.js" },
 					adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
 				})
 			end,
