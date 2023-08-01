@@ -421,24 +421,6 @@ M.config = function()
 			event = { "BufRead", "BufNew" },
 		},
 		{
-			"mxsdev/nvim-dap-vscode-js",
-			ft = {
-				"javascript",
-				"javascriptreact",
-				"javascript.jsx",
-				"typescript",
-				"typescriptreact",
-				"typescript.tsx",
-			},
-			lazy = true,
-			event = { "BufReadPre", "BufNew" },
-			config = function()
-				require("dap-vscode-js").setup({
-					adapters = { "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
-				})
-			end,
-		},
-		{
 			"smjonas/inc-rename.nvim",
 			cmd = "IncRename",
 			config = function()
