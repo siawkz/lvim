@@ -439,7 +439,7 @@ M.config = function()
 			event = { "BufReadPre", "BufNew" },
 			config = function()
 				require("dap-vscode-js").setup({
-					debugger_path = vim.fn.stdpath("data") .. "/lazy/js-debug-adapter",
+					debugger_path = os.getenv("HOME") .. "/.local/share/lunarvim/site/pack/lazy/opt/js-debug-adapter",
 					adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
 				})
 			end,
