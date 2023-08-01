@@ -421,11 +421,6 @@ M.config = function()
 			event = { "BufRead", "BufNew" },
 		},
 		{
-			"microsoft/vscode-js-debug",
-			tag = "v1.74.1",
-			build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
-		},
-		{
 			"mxsdev/nvim-dap-vscode-js",
 			ft = {
 				"javascript",
@@ -439,7 +434,7 @@ M.config = function()
 			event = { "BufReadPre", "BufNew" },
 			config = function()
 				require("dap-vscode-js").setup({
-					debugger_path = os.getenv("HOME") .. "/.local/share/lunarvim/site/pack/lazy/opt/js-debug-adapter",
+					debugger_path = vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter",
 					adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
 				})
 			end,
