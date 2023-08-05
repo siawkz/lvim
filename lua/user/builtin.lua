@@ -149,6 +149,7 @@ M.config = function()
 			["pwa-node"] = { "javascript", "typescript" },
 			["pwa-chrome"] = { "javascript", "typescript" },
 			["pwa-msedge"] = { "javascript", "typescript" },
+			["node-terminal"] = { "javascript", "typescript" },
 			perlsp = { "pl" },
 		})
 	end
