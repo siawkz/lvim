@@ -422,7 +422,7 @@ M.config = function()
 		},
 		{
 			"microsoft/vscode-js-debug",
-			tag = "v1.74.1",
+			version = "v1.74.1",
 			build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
 		},
 		{
