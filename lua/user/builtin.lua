@@ -58,6 +58,7 @@ M.config = function()
 		{ name = "cmp_tabnine", max_item_count = 3 },
 		{ name = "buffer", max_item_count = 5, keyword_length = 5 },
 		{ name = "copilot" },
+		{ name = "codeium" },
 		{ name = "path", max_item_count = 5 },
 		{ name = "luasnip", max_item_count = 3 },
 		{ name = "nvim_lua" },
@@ -76,6 +77,7 @@ M.config = function()
 		buffer = "(Buffer)",
 		copilot = "(Copilot)",
 		cmp_tabnine = "(TabNine)",
+		codeium = "(Codeium)",
 		crates = "(Crates)",
 		nvim_lua = "(NvLua)",
 	}
@@ -87,6 +89,22 @@ M.config = function()
 				vim_item.menu = ""
 				return vim_item
 			end
+			if entry.source.name == "codeium" then
+				local detail = (entry.completion_item.data or {}).detail
+				vim_item.kind = ""
+				if detail and detail:find(".*%%.*") then
+					vim_item.kind = vim_item.kind .. " " .. detail
+				end
+
+				if (entry.completion_item.data or {}).multiline then
+					vim_item.kind = vim_item.kind .. " " .. "[ML]"
+				end
+			end
+
+			if entry.source.name == "copilot" then
+				vim_item.kind = ""
+			end
+
 			vim_item.menu = cmp_sources[entry.source.name] or vim_item.kind
 			vim_item.kind = kind.cmp_kind[vim_item.kind] or vim_item.kind
 

@@ -70,6 +70,16 @@ M.config = function()
 			event = "InsertEnter",
 		},
 		{
+			"jcdickinson/codeium.nvim",
+			dependencies = {
+				"nvim-lua/plenary.nvim",
+				"hrsh7th/nvim-cmp",
+			},
+			config = function()
+				require("codeium").setup({})
+			end,
+		},
+		{
 			"folke/twilight.nvim",
 			lazy = true,
 			config = function()
