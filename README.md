@@ -32,6 +32,7 @@ lvim # run :Lazy sync
 ```
 
 - [CodeGPT](https://github.com/dpayne/CodeGPT.nvim)
+
 ```shell
 # set enviroment variable in /etc/environment
 OPENAI_API_KEY="your openapi api key"
@@ -108,6 +109,17 @@ Modes: 𝐍=normal 𝐕=visual 𝐒=select 𝐈=insert 𝐂=command
 | Key                                        | Mode | Action           |
 | ------------------------------------------ | :--: | ---------------- |
 | <kbd>Space</kbd>+<kbd>g</kbd>+<kbd>g</kbd> |  𝐍   | Open lazy git UI |
+
+### Plugin: Harpoon
+
+| Key                               | Mode | Action                           |
+| --------------------------------- | :--: | -------------------------------- |
+| <kbd>Space</kbd>+<kbd>Space</kbd> |  𝐍   | Show harpoon shortlist           |
+| <kbd>Space</kbd>+<kbd>a</kbd>     |  𝐍   | Add file to shortlist            |
+| <kbd>Space</kbd>+<kbd>1</kbd>     |  𝐍   | Jump to first file on shortlist  |
+| <kbd>Space</kbd>+<kbd>2</kbd>     |  𝐍   | Jump to second file on shortlist |
+| <kbd>Space</kbd>+<kbd>3</kbd>     |  𝐍   | Jump to third file on shortlist  |
+| <kbd>Space</kbd>+<kbd>4</kbd>     |  𝐍   | Jump to forth file on shortlist  |
 
 ### Plugin: Persistence
 

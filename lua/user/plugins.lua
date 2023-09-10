@@ -257,6 +257,13 @@ M.config = function()
 			end,
 		},
 		{
+			"ThePrimeagen/harpoon",
+			dependencies = {
+				{ "nvim-lua/plenary.nvim" },
+				{ "nvim-lua/popup.nvim" },
+			},
+		},
+		{
 			"sindrets/diffview.nvim",
 			lazy = true,
 			cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewFileHistory" },
