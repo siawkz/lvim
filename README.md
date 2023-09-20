@@ -70,15 +70,15 @@ Modes: 𝐍=normal 𝐕=visual 𝐒=select 𝐈=insert 𝐂=command
 
 ### Motion
 
-| Key                         | Mode | Action                  | Plugin or Mapping                    |
-| --------------------------- | :--: | ----------------------- | ------------------------------------ |
-| <kbd>f</kbd>                |  𝐍   | find next character     | <small>HopChar1CurrentLineAC</small> |
-| <kbd>F</kbd>                |  𝐍   | find previous character | <small>HopChar1CurrentLineBC</small> |
-| <kbd>s</kbd>                |  𝐍   | find character          | <small>HopChar2MW</small>            |
-| <kbd>S</kbd>                |  𝐍   | find word               | <small>HopWordMW</small>             |
-| <kbd>Alt</kbd>+<kbd>a</kbd> |  𝐈   | select all              | <small>ggVG</small>                  |
-| <kbd>Alt</kbd>+<kbd>a</kbd> |  𝐍   | increment number        | <small>C-A</small>                   |
-| <kbd>Alt</kbd>+<kbd>x</kbd> |  𝐍   | decrement number        | <small>C-X</small>                   |
+| Key                         | Mode | Action                  | Plugin or Mapping                      |
+| --------------------------- | :--: | ----------------------- | -------------------------------------- |
+| <kbd>f</kbd>                |  𝐍   | find next character     | <small>Flash.CharActions</small>       |
+| <kbd>F</kbd>                |  𝐍   | find previous character | <small>Flash.CharActions</small>       |
+| <kbd>s</kbd>                |  𝐍   | find character          | <small>require("flash").jump()</small> |
+| <kbd>S</kbd>                |  𝐍   | find word               | <small>2char jump</small>              |
+| <kbd>Alt</kbd>+<kbd>a</kbd> |  𝐈   | select all              | <small>ggVG</small>                    |
+| <kbd>Alt</kbd>+<kbd>a</kbd> |  𝐍   | increment number        | <small>C-A</small>                     |
+| <kbd>Alt</kbd>+<kbd>x</kbd> |  𝐍   | decrement number        | <small>C-X</small>                     |
 
 ### LSP
 
