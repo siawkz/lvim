@@ -40,6 +40,14 @@ M.config = function()
 			cmd = "Trouble",
 		},
 		{
+			"phaazon/hop.nvim",
+			event = "VeryLazy",
+			cmd = { "HopChar1CurrentLineAC", "HopChar1CurrentLineBC", "HopChar2MW", "HopWordMW" },
+			config = function()
+				require("user.hop").config()
+			end,
+		},
+		{
 			"simrat39/symbols-outline.nvim",
 			config = function()
 				require("user.symbols_outline").config()
@@ -500,11 +508,6 @@ M.config = function()
 				require("user.cle").cmake_config()
 			end,
 			ft = { "c", "cpp", "objc", "objcpp", "h", "hpp" },
-		},
-		{
-			"folke/flash.nvim",
-			event = "VeryLazy",
-			keys = require("user.flash").keys,
 		},
 		{
 			"dpayne/CodeGPT.nvim",
