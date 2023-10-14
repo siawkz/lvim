@@ -187,7 +187,7 @@ M.config = function()
 
 	-- IndentBlankline
 	-- =========================================
-	require("user.indent_blankline").config()
+	require("user.indent_blankline").setup()
 
 	-- LSP
 	-- =========================================

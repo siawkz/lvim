@@ -70,7 +70,7 @@ M.config = function()
 			event = "InsertEnter",
 		},
 		{
-			"jcdickinson/codeium.nvim",
+			"Exafunction/codeium.nvim",
 			dependencies = {
 				"nvim-lua/plenary.nvim",
 				"hrsh7th/nvim-cmp",
@@ -518,6 +518,11 @@ M.config = function()
 				"nvim-lua/plenary.nvim",
 				"MunifTanjim/nui.nvim",
 			},
+		},
+		{
+			"lukas-reineke/indent-blankline.nvim",
+			name = "new-indent",
+			main = "ibl",
 		},
 	}
 end
