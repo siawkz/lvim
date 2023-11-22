@@ -510,13 +510,15 @@ M.config = function()
 			ft = { "c", "cpp", "objc", "objcpp", "h", "hpp" },
 		},
 		{
-			"dpayne/CodeGPT.nvim",
+			"jackMort/ChatGPT.nvim",
+			event = "VeryLazy",
 			config = function()
-				require("user.codegpt").config()
+				require("chatgpt").setup()
 			end,
 			dependencies = {
-				"nvim-lua/plenary.nvim",
 				"MunifTanjim/nui.nvim",
+				"nvim-lua/plenary.nvim",
+				"nvim-telescope/telescope.nvim",
 			},
 		},
 		{

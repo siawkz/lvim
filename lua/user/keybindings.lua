@@ -163,10 +163,18 @@ M.set_task_runner_keymaps = function()
 	}
 end
 
-M.set_copilot_keymaps = function()
+M.set_ai_keymaps = function()
 	local copilot_ok, _ = pcall(require, "copilot")
+	local chatgpt_ok, _ = pcall(require, "chatgpt")
+	if not copilot_ok and not chatgpt_ok then
+		lvim.builtin.which_key.mappings["c"] = {}
+		return
+	end
+	lvim.builtin.which_key.mappings["c"] = {
+		name = " AI",
+	}
 	if copilot_ok then
-		lvim.builtin.which_key.mappings["c"] = {
+		lvim.builtin.which_key.mappings["ca"] = {
 			name = " Copilot",
 			e = { "<cmd>Copilot enable<cr>", "Enable" },
 			f = { "<cmd>Copilot! toggle<cr>", "Force Enable" },
@@ -174,8 +182,43 @@ M.set_copilot_keymaps = function()
 			t = { "<cmd> lua require('copilot.suggestion').toggle_auto_trigger()<cr>", "Toggle Suggestions" },
 			s = { "<cmd>Copilot status<cr>", "Status" },
 		}
-	else
-		lvim.builtin.which_key.mappings["c"] = {}
+	end
+	if chatgpt_ok then
+		lvim.builtin.which_key.mappings["cb"] = {
+			name = " ChatGPT",
+			c = { "<cmd>ChatGPT<cr>", "ChatGPT" },
+			e = { "<cmd>ChatGPTEditWithInstruction<cr>", "Edit with Instruction" },
+			g = { "<cmd>ChatGPTRun grammar_correction<cr>", "Grammar Correction" },
+			t = { "<cmd>ChatGPTRun translate<cr>", "Translate" },
+			k = { "<cmd>ChatGPTRun keywords<cr>", "Keywords" },
+			d = { "<cmd>ChatGPTRun docstring<cr>", "Docstring" },
+			a = { "<cmd>ChatGPTRun add_tests<cr>", "Add Tests" },
+			o = { "<cmd>ChatGPTRun optimize_code<cr>", "Optimize Code" },
+			s = { "<cmd>ChatGPTRun summarize<cr>", "Summarize" },
+			f = { "<cmd>ChatGPTRun fix_bugs<cr>", "Fix Bugs" },
+			x = { "<cmd>ChatGPTRun explain_code<cr>", "Explain Code" },
+			r = { "<cmd>ChatGPTRun roxygen_edit<cr>", "Roxygen Edit" },
+			l = { "<cmd>ChatGPTRun code_readability_analysis<cr>", "Code Readability Analysis" },
+		}
+
+		lvim.builtin.which_key.vmappings["c"] = {
+			name = " AI",
+		}
+		lvim.builtin.which_key.vmappings["cb"] = {
+			name = " ChatGPT",
+			e = { "<cmd>ChatGPTEditWithInstruction<cr>", "Edit with Instruction" },
+			g = { "<cmd>ChatGPTRun grammar_correction<cr>", "Grammar Correction" },
+			t = { "<cmd>ChatGPTRun translate<cr>", "Translate" },
+			k = { "<cmd>ChatGPTRun keywords<cr>", "Keywords" },
+			d = { "<cmd>ChatGPTRun docstring<cr>", "Docstring" },
+			a = { "<cmd>ChatGPTRun add_tests<cr>", "Add Tests" },
+			o = { "<cmd>ChatGPTRun optimize_code<cr>", "Optimize Code" },
+			s = { "<cmd>ChatGPTRun summarize<cr>", "Summarize" },
+			f = { "<cmd>ChatGPTRun fix_bugs<cr>", "Fix Bugs" },
+			x = { "<cmd>ChatGPTRun explain_code<cr>", "Explain Code" },
+			r = { "<cmd>ChatGPTRun roxygen_edit<cr>", "Roxygen Edit" },
+			l = { "<cmd>ChatGPTRun code_readability_analysis<cr>", "Code Readability Analysis" },
+		}
 	end
 end
 
@@ -404,7 +447,7 @@ M.config = function()
 	}
 
 	M.set_refactoring_keymaps()
-	M.set_copilot_keymaps()
+	M.set_ai_keymaps()
 end
 
 return M
