@@ -25,9 +25,9 @@ M.config = function()
 			prefer_local = "node_modules/.bin",
 		}),
 		nls.builtins.formatting.csharpier,
-		nls.builtins.formatting.clang_format.with({
-			filetypes = { "c", "cpp" },
-		}),
+		-- nls.builtins.formatting.clang_format.with({
+		-- 	filetypes = { "c", "cpp" },
+		-- }),
 		nls.builtins.formatting.google_java_format,
 		nls.builtins.formatting.stylua,
 		nls.builtins.formatting.goimports,
@@ -57,7 +57,7 @@ M.config = function()
 			prefer_local = "node_modules/.bin",
 		}),
 		nls.builtins.diagnostics.shellcheck,
-		nls.builtins.diagnostics.cpplint,
+		-- nls.builtins.diagnostics.cpplint,
 		nls.builtins.code_actions.gomodifytags,
 		-- nls.builtins.diagnostics.luacheck,
 		nls.builtins.code_actions.eslint_d.with({
@@ -67,7 +67,17 @@ M.config = function()
 			prefer_local = "node_modules/.bin",
 		}),
 		nls.builtins.code_actions.refactoring.with({
-			filetypes = { "typescript", "javascript", "lua", "c", "cpp", "go", "python", "java", "php" },
+			filetypes = {
+				"typescript",
+				"javascript",
+				"lua",
+				-- "c",
+				-- "cpp",
+				"go",
+				"python",
+				"java",
+				"php",
+			},
 		}),
 	}
 
