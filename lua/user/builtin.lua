@@ -315,6 +315,7 @@ M.config = function()
 	}
 	lvim.builtin.treesitter.indent = { enable = true, disable = { "yaml", "python" } } -- treesitter is buggy :(
 	lvim.builtin.treesitter.matchup.enable = true
+	lvim.builtin.treesitter.matchup.disable = { "cmake" }
 	-- lvim.treesitter.textsubjects.enable = true
 	-- lvim.treesitter.playground.enable = true
 	lvim.builtin.treesitter.query_linter = {
