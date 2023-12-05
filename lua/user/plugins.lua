@@ -197,6 +197,11 @@ M.config = function()
 			event = { "BufReadPre", "BufNew" },
 		},
 		{
+			"alfaix/neotest-gtest",
+			event = { "BufEnter *.cpp" },
+			dependencies = { "nvim-treesitter/nvim-treesitter" },
+		},
+		{
 			"nvim-neotest/neotest",
 			config = function()
 				require("user.ntest").config()
@@ -204,6 +209,7 @@ M.config = function()
 			dependencies = {
 				{ "nvim-neotest/neotest-plenary" },
 				{ "Issafalcon/neotest-dotnet" },
+				{ "alfaix/neotest-gtest" },
 			},
 			event = { "BufReadPost", "BufNew" },
 		},
