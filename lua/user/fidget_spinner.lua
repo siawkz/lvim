@@ -94,7 +94,7 @@ M.config = function()
 		-- Options related to integrating with other plugins
 		integration = {
 			["nvim-tree"] = {
-				enable = true, -- Integrate with nvim-tree/nvim-tree.lua (if installed)
+				enable = false, -- Integrate with nvim-tree/nvim-tree.lua (if installed)
 			},
 		},
 
