@@ -531,6 +531,13 @@ M.config = function()
 			name = "new-indent",
 			main = "ibl",
 		},
+		{
+			"Wansmer/symbol-usage.nvim",
+			event = "LspAttach",
+			config = function()
+				require("user.symbol_use").config()
+			end,
+		},
 	}
 end
 

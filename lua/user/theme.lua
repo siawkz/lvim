@@ -49,6 +49,116 @@ M.tokyonight = function()
 	}
 end
 
+M.hi_colors = function()
+	local colors = {
+		bg = "#16161D",
+		bg_alt = "#1F1F28",
+		fg = "#DCD7BA",
+		green = "#76946A",
+		red = "#E46876",
+	}
+	local color_binds = {
+		bg = { group = "NormalFloat", property = "background" },
+		bg_alt = { group = "Cursor", property = "foreground" },
+		fg = { group = "Cursor", property = "background" },
+		green = { group = "diffAdded", property = "foreground" },
+		red = { group = "diffRemoved", property = "foreground" },
+	}
+	local function get_hl_by_name(name)
+		local ret = vim.api.nvim_get_hl_by_name(name.group, true)
+		return string.format("#%06x", ret[name.property])
+	end
+
+	for k, v in pairs(color_binds) do
+		local found, color = pcall(get_hl_by_name, v)
+		if found then
+			colors[k] = color
+		end
+	end
+	return colors
+end
+
+M.telescope_theme = function(colorset)
+	local function link(group, other)
+		vim.cmd("highlight! link " .. group .. " " .. other)
+	end
+
+	local function set_bg(group, bg)
+		vim.cmd("hi " .. group .. " guibg=" .. bg)
+	end
+
+	local function set_fg_bg(group, fg, bg)
+		vim.cmd("hi " .. group .. " guifg=" .. fg .. " guibg=" .. bg)
+	end
+
+	set_fg_bg("SpecialComment", "#9ca0a4", "bold")
+	link("FocusedSymbol", "LspHighlight")
+	link("LspCodeLens", "SpecialComment")
+	link("LspDiagnosticsSignError", "DiagnosticError")
+	link("LspDiagnosticsSignHint", "DiagnosticHint")
+	link("LspDiagnosticsSignInfo", "DiagnosticInfo")
+	link("NeoTreeDirectoryIcon", "NvimTreeFolderIcon")
+	link("IndentBlanklineIndent1 ", "@comment")
+	if vim.fn.has("nvim-0.9") == 1 then
+		link("@lsp.type.decorator", "@function")
+		link("@lsp.type.enum", "@type")
+		link("@lsp.type.enumMember", "@constant")
+		link("@lsp.type.function", "@function")
+		link("@lsp.type.interface", "@interface")
+		link("@lsp.type.keyword", "@keyword")
+		link("@lsp.type.macro", "@macro")
+		link("@lsp.type.method", "@method")
+		link("@lsp.type.namespace", "@namespace")
+		link("@lsp.type.parameter", "@parameter")
+		link("@lsp.type.property", "@property")
+		link("@lsp.type.struct", "@structure")
+		link("@lsp.type.variable", "@variable")
+		link("@lsp.type.class", "@type")
+		link("@lsp.type.type", "@type")
+		link("@lsp.typemod.function.defaultLibrary", "Special")
+		link("@lsp.typemod.variable.defaultLibrary", "@variable.builtin")
+		-- link("@lsp.typemod.variable.global", "@constant.builtin")
+		link("@lsp.typemod.operator", "@operator")
+		link("@lsp.typemod.string", "@string")
+		link("@lsp.typemod.variable", "@variable")
+		link("@lsp.typemod.parameter.label", "@field")
+		link("@type.qualifier", "@keyword")
+	end
+
+	local colors = M.hi_colors()
+	-- set_fg_bg("WinSeparator", colors.bg, "None")
+	set_fg_bg("NormalFloat", colors.fg, colors.bg)
+	set_fg_bg("FloatBorder", colors.fg, colors.bg)
+	set_fg_bg("TelescopeBorder", colors.bg_alt, colors.bg)
+	set_fg_bg("TelescopePromptBorder", colors.bg, colors.bg)
+	set_fg_bg("TelescopePromptNormal", colors.fg, colors.bg_alt)
+	set_fg_bg("TelescopePromptPrefix", colors.red, colors.bg)
+	set_bg("TelescopeNormal", colors.bg)
+	set_fg_bg("TelescopePreviewTitle", colors.bg, colors.green)
+	set_fg_bg("LvimInfoHeader", colors.bg, colors.green)
+	set_fg_bg("LvimInfoIdentifier", colors.red, colors.bg_alt)
+	set_fg_bg("TelescopePromptTitle", colors.bg, colors.red)
+	set_fg_bg("TelescopeResultsTitle", colors.bg, colors.bg)
+	set_fg_bg("TelescopeResultsBorder", colors.bg, colors.bg)
+	set_bg("TelescopeSelection", colors.bg_alt)
+
+	local bg = vim.api.nvim_get_hl(0, { name = "StatusLine" }).bg
+	local hl = vim.api.nvim_get_hl(0, { name = "Folded" })
+	hl.bg = bg
+	vim.api.nvim_set_hl(0, "Folded", hl)
+	vim.opt.foldtext = [[luaeval('HighlightedFoldtext')()]]
+
+	local function h(name)
+		return vim.api.nvim_get_hl(0, { name = name })
+	end
+
+	vim.api.nvim_set_hl(0, "SymbolUsageRounding", { fg = h("CursorLine").bg })
+	vim.api.nvim_set_hl(0, "SymbolUsageContent", { bg = h("CursorLine").bg, fg = h("Comment").fg, italic = true })
+	vim.api.nvim_set_hl(0, "SymbolUsageRef", { fg = h("Function").fg, bg = h("CursorLine").bg, italic = true })
+	vim.api.nvim_set_hl(0, "SymbolUsageDef", { fg = h("Type").fg, bg = h("CursorLine").bg, italic = true })
+	vim.api.nvim_set_hl(0, "SymbolUsageImpl", { fg = h("@keyword").fg, bg = h("CursorLine").bg, italic = true })
+end
+
 M.colors = {
 	tokyonight_colors = {
 		cmp_border = "#181924",
