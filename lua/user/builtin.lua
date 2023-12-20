@@ -4,6 +4,12 @@ local kind = require("user.lsp_kind")
 M.default_diagnostic_config = {
 	signs = {
 		active = true,
+		text = {
+			[vim.diagnostic.severity.ERROR] = kind.icons.error,
+			[vim.diagnostic.severity.WARN] = kind.icons.warn,
+			[vim.diagnostic.severity.INFO] = kind.icons.info,
+			[vim.diagnostic.severity.HINT] = kind.icons.hint,
+		},
 		values = {
 			{ name = "DiagnosticSignError", text = kind.icons.error },
 			{ name = "DiagnosticSignWarn", text = kind.icons.warn },
