@@ -538,6 +538,11 @@ M.config = function()
 				require("user.symbol_use").config()
 			end,
 		},
+		{
+			"m4xshen/hardtime.nvim",
+			dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+			opts = {},
+		},
 	}
 end
 
