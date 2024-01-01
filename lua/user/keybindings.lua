@@ -303,14 +303,16 @@ M.config = function()
 		s = { "<cmd>lua require('user.telescope').git_status()<cr>", "Git Status" },
 		z = { "<cmd>lua require('user.telescope').search_only_certain_files()<cr>", "Certain Filetype" },
 	}
-	lvim.builtin.which_key.mappings["C"] =
-		{ "<cmd>lua require('legendary').find('commands')<cr>", " Command Palette" }
-	lvim.keys.normal_mode["<c-P>"] = "<cmd>lua require('legendary').find()<cr>"
+	lvim.builtin.which_key.mappings["C"] = {
+		"<cmd>lua require('legendary').find({ filters = { require('legendary.filters').commands() } })<cr>",
+		" Command Palette",
+	}
+	-- lvim.keys.normal_mode["<c-P>"] = "<cmd>lua require('legendary').find()<cr>"
 	lvim.builtin.which_key.mappings["se"] = { "<cmd>Telescope file_browser<cr>", "File Browser" }
 	lvim.builtin.which_key.mappings["H"] = " Help"
 	lvim.builtin.which_key.mappings["h"] = { "<cmd>nohlsearch<CR>", "󰸱 No Highlight" }
 	lvim.builtin.which_key.mappings.g.name = " Git"
-  lvim.builtin.which_key.mappings["I"] = { "<cmd>lua require('user.neovim').inlay_hints()<cr>", " Toggle Inlay" }
+	lvim.builtin.which_key.mappings["I"] = { "<cmd>lua require('user.neovim').inlay_hints()<cr>", " Toggle Inlay" }
 	lvim.builtin.which_key.mappings.l.name = " LSP"
 	lvim.builtin.which_key.mappings["f"] = {
 		require("user.telescope").find_project_files,
