@@ -7,7 +7,7 @@
 - [Neovim](neovim-install) >= v0.8.0
 
 ```shell
-  brew install neovim --nightly
+  brew install neovim
 ```
 
 - [Rust](https://www.rust-lang.org/tools/install)
@@ -37,6 +37,11 @@ lvim # run :Lazy sync
 # set enviroment variable in /etc/environment
 OPENAI_API_KEY="your openapi api key"
 ```
+
+- Python Debugger
+
+1. Install `debugpy` via Mason
+2. Install necessary packages with `~/.local/share/lvim/mason/packages/debugpy/venv/bin/pip` for debugging
 
 ### Recommended Fonts
 
