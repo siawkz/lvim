@@ -1,4 +1,4 @@
-local M = {}
+local M = {}lsp
 
 M.mason = {
 	package_pending = " ",
@@ -30,6 +30,7 @@ M.cmp_kind = {
 	Property = " ",
 	Reference = "󰈇",
 	Snippet = " ", -- ""," "," "
+  spell = "󰓆",
 	Struct = "󰙅",
 	Text = "󰉿",
 	TypeParameter = "  ",
