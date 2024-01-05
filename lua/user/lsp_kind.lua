@@ -1,4 +1,4 @@
-local M = {}lsp
+local M = {}
 
 M.mason = {
 	package_pending = " ",
