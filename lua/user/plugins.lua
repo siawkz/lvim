@@ -109,9 +109,9 @@ M.config = function()
 			ft = "markdown",
 		},
 		{
-			"simrat39/rust-tools.nvim",
-			lazy = true,
-			config = function()
+			"mrcjkb/rustaceanvim",
+			version = "^3",
+			init = function()
 				require("user.rust_tools").config()
 			end,
 			ft = { "rust", "rs" },
@@ -541,7 +541,9 @@ M.config = function()
 		{
 			"m4xshen/hardtime.nvim",
 			dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-			opts = {},
+			opts = {
+				disable_mouse = false,
+			},
 		},
 		{
 			"sitiom/nvim-numbertoggle",
